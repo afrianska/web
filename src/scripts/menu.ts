@@ -1,3 +1,27 @@
-const menuElement = document.getElementById('menu');
-const closeElement = document.getElementById('close');
+let hamburger = document.getElementById("hamburger");
+let menuHam = document.getElementById("menu-hamburger");
 
+let navHam = document.getElementById("nav-hamburger");
+let menu = document.getElementById("menu");
+let body = document.body;
+
+function openMenu() {
+    navHam?.classList.remove("flex");
+    navHam?.classList.add("hidden");
+    menu?.classList.remove("hidden");
+    menu?.classList.add("flex");
+    body?.classList.add("overflow-y-hidden");
+    console.log("Clicked Open");
+}
+
+function closeMenu() {
+    navHam?.classList.remove("hidden");
+    navHam?.classList.add("flex");
+    menu?.classList.remove("flex");
+    menu?.classList.add("hidden");
+    body?.classList.remove("overflow-y-hidden");
+    console.log("Clicked Close");
+}
+
+hamburger?.addEventListener("click", openMenu);
+menuHam?.addEventListener("click", closeMenu);

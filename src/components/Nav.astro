@@ -2,7 +2,7 @@
 
 ---
 
-<nav class='fixed w-full z-50'>
+<nav class='fixed w-full lg:w-full z-50'>
   <div id='nav-hamburger' class='nav flex z-50'>
     <div id='hamburger' class='btn-icon-text'>
       <svg
@@ -19,12 +19,12 @@
           stroke-linecap='round'
           stroke-linejoin='round'></path>
       </svg>
-      <span>MENU</span>
+      <span class='hidden lg:contents'>MENU</span>
     </div>
     <a class='btn-text' href='/contact' target='_blank' rel='noopener noreferrer'>BOOK A CALL</a>
   </div>
   <div id='menu' class='hidden z-50 bg-neutral-900 h-screen flex-col relative'>
-    <div class='absolute flex flex-row items-center justify-between w-full px-16 py-4'>
+    <div class='absolute flex flex-row items-center justify-between w-full p-4 xl:p-8'>
       <div id='menu-hamburger' class='btn-icon-text-secondary'>
         <svg
           width='22'
@@ -40,7 +40,7 @@
             stroke-linecap='round'
             stroke-linejoin='round'></path>
         </svg>
-        <span>CLOSE</span>
+        <span class='hidden lg:contents'>CLOSE</span>
       </div>
       <a
         class='btn-text text-neutral-900 mr-4'
