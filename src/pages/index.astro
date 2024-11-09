@@ -1,16 +1,258 @@
 ---
+import HomeLayout from "../layouts/HomeLayout.astro";
+import globeIcon from "/svg/disabled/globe.svg?raw";
+import phoneIcon from "/svg/disabled/smartphone.svg?raw";
+import monitorIcon from "/svg/disabled/monitor.svg?raw";
+import bagIcon from "/svg/disabled/briefcase.svg?raw";
+import fileIcon from "/svg/disabled/scroll-text.svg?raw";
+import cvIcon from "/svg/file-text.svg?raw";
+import dribbbleIcon from "/svg/dribbble.svg?raw";
+import githubIcon from "/svg/github.svg?raw";
+import linkedinIcon from "/svg/linkedin.svg?raw";
+import twitterIcon from "/svg/twitter.svg?raw";
+import instagramIcon from "/svg/instagram.svg?raw";
+import plusIcon from "/svg/plus.svg?raw";
+import minIcon from "/svg/minus.svg?raw";
+import questionIcon from "/svg/message-circle-question.svg?raw";
 
+import designSparkLogo from "/logo/design-spark.svg?raw";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<HomeLayout pageTitle='Afrian EP: Design And Develop Your Web And Mobila App.'>
+  <main id='home' class='home-body'>
+    <section class='hero'>
+      <div class='welcome'>
+        <div class='avatar'>
+          <img src='/avatar.png' alt='' />
+        </div>
+        <div class='greetings'>
+          <h1>Hi, I'm <span class='font-bold'>Afrian EP</span></h1>
+          <h3>A designer who write code.</h3>
+        </div>
+      </div>
+      <div class='links'>
+        <div class='links-left'>
+          <a class='btn-icon' href='https://dribbble.com/afrianska' target='_blank'>
+            <Fragment set:html={dribbbleIcon} />
+          </a>
+          <a class='btn-icon' href='https://github.com/afrianska' target='_blank'>
+            <Fragment set:html={githubIcon} />
+          </a>
+          <a class='btn-icon' href='https://www.linkedin.com/in/afrian/' target='_blank'>
+            <Fragment set:html={linkedinIcon} />
+          </a>
+          <a class='btn-icon' href='https://x.com/afrianska' target='_blank'>
+            <Fragment set:html={twitterIcon} />
+          </a>
+          <a class='btn-icon' href='https://www.instagram.com/afrianep/' target='_blank'>
+            <Fragment set:html={instagramIcon} />
+          </a>
+        </div>
+        <div class='links-right'>
+          <a class='btn-icon-text' href='/afrian-resume.pdf' target='_blank'>
+            <span>Resume</span>
+            <Fragment set:html={cvIcon} />
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class='projects'>
+      <div class='card'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1666946419/visualo_r9jti8.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='title-desc'>
+            <h4>Alura</h4>
+            <p>Company who work in electronic part</p>
+          </div>
+          <div class='scope-visit-link'>
+            <div class='scope'>
+              <Fragment set:html={globeIcon} />
+              <Fragment set:html={phoneIcon} />
+              <Fragment set:html={monitorIcon} />
+              <Fragment set:html={bagIcon} />
+              <Fragment set:html={fileIcon} />
+            </div>
+            <a class='btn-text-secondary' href=''>Visit</a>
+          </div>
+        </div>
+      </div>
+      <div class='card'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1666947386/lorikon_irttld.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='title-desc'>
+            <h4>Alura</h4>
+            <p>Company who work in electronic part</p>
+          </div>
+          <div class='scope-visit-link'>
+            <div class='scope'>
+              <Fragment set:html={globeIcon} />
+              <Fragment set:html={phoneIcon} />
+              <Fragment set:html={monitorIcon} />
+              <Fragment set:html={bagIcon} />
+              <Fragment set:html={fileIcon} />
+            </div>
+            <a class='btn-text-secondary' href=''>Visit</a>
+          </div>
+        </div>
+      </div>
+      <div class='card'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1666946422/lumra_e8ew9w.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='title-desc'>
+            <h4>Alura</h4>
+            <p>Company who work in electronic part</p>
+          </div>
+          <div class='scope-visit-link'>
+            <div class='scope'>
+              <Fragment set:html={globeIcon} />
+              <Fragment set:html={phoneIcon} />
+              <Fragment set:html={monitorIcon} />
+              <Fragment set:html={bagIcon} />
+              <Fragment set:html={fileIcon} />
+            </div>
+            <a class='btn-text-secondary' href=''>Visit</a>
+          </div>
+        </div>
+      </div>
+      <div class='card-interested'>
+        <div class='desc'>
+          <h3>Interested In Collaborating?</h3>
+          <p>I’m crafting and developing a better experience for your web & mobile app.</p>
+        </div>
+        <a class='btn-text' href='/'>BOOK A CALL NOW!</a>
+      </div>
+    </section>
+    <section class='blog-home'>
+      <h5>RECENT WRITING</h5>
+      <div class='blog-list'>
+        <div class='card-blog-home'>
+          <div class='time-line'>
+            <div class='line'></div>
+            <div class='circle'></div>
+          </div>
+          <div class='blog-item'>
+            <p class='date-item'>April,16, 2020</p>
+            <div class='title-desc'>
+              <h3>Mobile App Design Case Study: Planting Tutorial And Advice App.</h3>
+              <p>
+                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
+                first time plant a type of new plant.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='card-blog-home'>
+          <div class='time-line'>
+            <div class='line'></div>
+            <div class='circle'></div>
+          </div>
+          <div class='blog-item'>
+            <p class='date-item'>April,16, 2020</p>
+            <div class='title-desc'>
+              <h3>Mobile App Design Case Study: Planting Tutorial And Advice App.</h3>
+              <p>
+                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
+                first time plant a type of new plant.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='card-blog-home'>
+          <div class='time-line'>
+            <div class='line'></div>
+            <div class='circle'></div>
+          </div>
+          <div class='blog-item'>
+            <p class='date-item'>April,16, 2020</p>
+            <div class='title-desc'>
+              <h3>Mobile App Design Case Study: Planting Tutorial And Advice App.</h3>
+              <p>
+                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
+                first time plant a type of new plant.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='card-blog-home'>
+          <div class='time-line'>
+            <div class='line'></div>
+            <div class='circle'></div>
+          </div>
+          <div class='blog-item'>
+            <p class='date-item'>April,16, 2020</p>
+            <div class='title-desc'>
+              <h3>Mobile App Design Case Study: Planting Tutorial And Advice App.</h3>
+              <p>
+                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
+                first time plant a type of new plant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class='btn-text-secondary' href='/blog'>SEE ALL ARTICLES</a>
+    </section>
+    <section class='products'>
+      <h5>PERSONAL PRODUCTS</h5>
+      <div class='product-list'>
+        <div class='card-product-item'>
+          <Fragment set:html={designSparkLogo} />
+          <div class='desc'>
+            <h4>Design Spark</h4>
+            <p>A figma plugin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='faq'>
+      <h5 class='uppercase'>Frequently Asked Questions</h5>
+      <div class='faq-list'>
+        <div class='card-faq-item'>
+          <div class='question'>
+            <div class='question-head'>
+              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
+              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+            </div>
+            <div class='btn-icon'><Fragment set:html={minIcon} /></div>
+          </div>
+          <div class='answer'>
+            <p>
+              Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
+              first time plant a type of new plant.
+            </p>
+          </div>
+        </div>
+        <div class='card-faq-item'>
+          <div class='question'>
+            <div class='question-head'>
+              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
+              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+            </div>
+            <div class='btn-icon'><Fragment set:html={plusIcon} /></div>
+          </div>
+        </div>
+        <div class='card-faq-item'>
+          <div class='question'>
+            <div class='question-head'>
+              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
+              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+            </div>
+            <div class='btn-icon'><Fragment set:html={plusIcon} /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</HomeLayout>

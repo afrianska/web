@@ -1,0 +1,127 @@
+---
+import HomeLayout from "../layouts/HomeLayout.astro";
+
+import mailIcon from "/svg/mail.svg?raw";
+---
+
+<HomeLayout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
+  <main id='home' class='home-body'>
+    <section class='header-blog'>
+      <div class='title-desc'>
+        <h1>Afrian’s Blog</h1>
+        <p>I write articles related to design, software development, lifestyle, etc.</p>
+      </div>
+      <div class='flex flex-row justify-between items-center'>
+        <div class='flex flex-row items-center gap-3'>
+          <a href='/'>Home</a>
+          <p>{">"}</p>
+          <a href='/blog'>Blog</a>
+        </div>
+        <div class='subscribe'>
+          <a class='btn-icon-text' href='/' target='_blank'>
+            <span>Subscribe</span>
+            <Fragment set:html={mailIcon} />
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class='blog-list'>
+      <a href='/p' class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </a>
+      <div class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </div>
+      <div class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </div>
+      <div class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </div>
+      <div class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </div>
+      <div class='card-blog-item'>
+        <div
+          class='thumbnail'
+          style='background-image: url(https://res.cloudinary.com/melesat/image/upload/v1664959179/showcase_b9cewi.png);'
+        >
+        </div>
+        <div class='detail'>
+          <div class='desc'>
+            <p>April,16, 2020</p>
+            <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
+          </div>
+          <div class='tags'>
+            <p class='tag'>Design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</HomeLayout>

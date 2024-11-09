@@ -1,0 +1,52 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class='overflow-auto'>
+    <Nav />
+    <slot />
+    <Footer />
+    <!-- Scrips -->
+    <script>
+      let hamburger = document.getElementById("hamburger");
+      let menuHam = document.getElementById("menu-hamburger");
+
+      let navHam = document.getElementById("nav-hamburger");
+      let menu = document.getElementById("menu");
+      let body = document.body;
+
+      function openMenu() {
+        navHam?.classList.remove("flex");
+        navHam?.classList.add("hidden");
+        menu?.classList.remove("hidden");
+        menu?.classList.add("flex");
+        body?.classList.add("overflow-y-hidden");
+        console.log("Clicked Open");
+      }
+
+      function closeMenu() {
+        navHam?.classList.remove("hidden");
+        navHam?.classList.add("flex");
+        menu?.classList.remove("flex");
+        menu?.classList.add("hidden");
+        body?.classList.remove("overflow-y-hidden");
+        console.log("Clicked Close");
+      }
+
+      hamburger?.addEventListener("click", openMenu);
+      menuHam?.addEventListener("click", closeMenu);
+    </script>
+  </body>
+</html>

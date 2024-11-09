@@ -1,0 +1,21 @@
+---
+const { title, desc, iconFile, iconAlt } = Astro.props;
+---
+
+<div class='card'>
+  <img src='' alt='' />
+  <div class='detail'>
+    <div class='title-desc'>
+      <h4>{title}</h4>
+      <p>{desc}</p>
+    </div>
+    <div class='scope-visit-link'>
+      <div class='scope'>
+        <img src={`/svg/${iconFile}.svg`} alt='web' />
+        <img src='/svg/smartphone.svg' alt='mobile app' />
+        <img src='/svg/briefcase.svg' alt='paid project' />
+      </div>
+      <a class='btn-text-secondary' href=''>Visit</a>
+    </div>
+  </div>
+</div>
