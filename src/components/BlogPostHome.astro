@@ -1,0 +1,19 @@
+---
+const { title, date, url, desc } = Astro.props;
+---
+
+<div class='card-blog-home'>
+  <div class='time-line'>
+    <div class='line'></div>
+    <div class='circle'></div>
+  </div>
+  <div class='blog-item'>
+    <p class='date-item'>{date.toString().slice(0, 10)}</p>
+    <div class='title-desc'>
+      <a href={url}><h4>{title}</h4></a>
+      <p>
+        {desc}
+      </p>
+    </div>
+  </div>
+</div>

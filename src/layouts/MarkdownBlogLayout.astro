@@ -1,0 +1,25 @@
+---
+import HomeLayout from "./HomeLayout.astro";
+import HeaderBlog from "../components/HeaderBlog.astro";
+const { frontmatter } = Astro.props;
+---
+
+<HomeLayout pageTitle={frontmatter.title}>
+  <main id='home' class='home-body'>
+    <HeaderBlog />
+    <section class='blog-content h-screen capitalize'>
+      <div class='flex flex-col gap-2'>
+        <h3>{frontmatter.title}</h3>
+        <div class='flex flex-row gap-2'>
+          <p>April,16, 2020</p>
+          <p>•</p>
+          <p>By {frontmatter.author}</p>
+        </div>
+      </div>
+      <slot />
+      <div class='tags'>
+        <p class='tag'>Design</p>
+      </div>
+    </section>
+  </main>
+</HomeLayout>

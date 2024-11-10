@@ -1,0 +1,16 @@
+---
+const { title, date, url, img } = Astro.props;
+---
+
+<a href={url} class='card-blog-item'>
+  <div class='thumbnail' style=`background-image: url(${img});`></div>
+  <div class='detail'>
+    <div class='desc'>
+      <p>{date.toString().slice(0, 10)}</p>
+      <h5>{title}</h5>
+    </div>
+    <div class='tags'>
+      <p class='tag'>Design</p>
+    </div>
+  </div>
+</a>

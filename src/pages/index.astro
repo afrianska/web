@@ -1,5 +1,7 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
+import CardFAQ from "../components/CardFAQ.astro";
+
 import globeIcon from "/svg/disabled/globe.svg?raw";
 import phoneIcon from "/svg/disabled/smartphone.svg?raw";
 import monitorIcon from "/svg/disabled/monitor.svg?raw";
@@ -11,9 +13,6 @@ import githubIcon from "/svg/github.svg?raw";
 import linkedinIcon from "/svg/linkedin.svg?raw";
 import twitterIcon from "/svg/twitter.svg?raw";
 import instagramIcon from "/svg/instagram.svg?raw";
-import plusIcon from "/svg/plus.svg?raw";
-import minIcon from "/svg/minus.svg?raw";
-import questionIcon from "/svg/message-circle-question.svg?raw";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
 ---
@@ -196,7 +195,7 @@ import designSparkLogo from "/logo/design-spark.svg?raw";
           </div>
         </div>
       </div>
-      <a class='btn-text-secondary' href='/blog'>SEE ALL ARTICLES</a>
+      <a class='btn-text-secondary' href='/blog'>SEE ALL POST</a>
     </section>
     <section class='products'>
       <h5 class='section-title'>PERSONAL PRODUCTS</h5>
@@ -213,39 +212,22 @@ import designSparkLogo from "/logo/design-spark.svg?raw";
     <section class='faq'>
       <h5 class='section-title'>Frequently Asked Questions</h5>
       <div class='faq-list'>
-        <div class='card-faq-item'>
-          <div class='question'>
-            <div class='question-head'>
-              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
-              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
-            </div>
-            <div class='btn-icon'><Fragment set:html={minIcon} /></div>
-          </div>
-          <div class='answer'>
-            <p>
-              Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
-              first time plant a type of new plant.
-            </p>
-          </div>
-        </div>
-        <div class='card-faq-item'>
-          <div class='question'>
-            <div class='question-head'>
-              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
-              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
-            </div>
-            <div class='btn-icon'><Fragment set:html={plusIcon} /></div>
-          </div>
-        </div>
-        <div class='card-faq-item'>
-          <div class='question'>
-            <div class='question-head'>
-              <div class='btn-icon'><Fragment set:html={questionIcon} /></div>
-              <h5>Mobile App Design Case Study: Planting Tutorial And Advice App.</h5>
-            </div>
-            <div class='btn-icon'><Fragment set:html={plusIcon} /></div>
-          </div>
-        </div>
+        <CardFAQ
+          q='Mobile App Design Case Study: Planting Tutorial And Advice App?'
+          a='Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+        />
+        <CardFAQ
+          q='Mobile App Design Case Study: Planting Tutorial And Advice App?'
+          a='Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+        />
+        <CardFAQ
+          q='Mobile App Design Case Study: Planting Tutorial And Advice App?'
+          a='Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+        />
+        <CardFAQ
+          q='Mobile App Design Case Study: Planting Tutorial And Advice App?'
+          a='Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+        />
       </div>
     </section>
   </main>

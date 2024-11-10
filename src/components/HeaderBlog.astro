@@ -1,0 +1,23 @@
+---
+import mailIcon from "/svg/mail.svg?raw";
+---
+
+<section class='header-blog'>
+  <div class='title-desc'>
+    <h1>Afrian’s Blog</h1>
+    <p>I write articles related to design, software development, lifestyle, etc.</p>
+  </div>
+  <div class='flex flex-row justify-between items-center'>
+    <div class='flex flex-row items-center gap-3'>
+      <a href='/'>Home</a>
+      <p>{">"}</p>
+      <a href='/blog'>Blog</a>
+    </div>
+    <div class='subscribe'>
+      <a class='btn-icon-text' href='/' target='_blank'>
+        <span>Subscribe</span>
+        <Fragment set:html={mailIcon} />
+      </a>
+    </div>
+  </div>
+</section>

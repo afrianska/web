@@ -1,0 +1,17 @@
+---
+import plusIcon from "/svg/plus.svg?raw";
+import minIcon from "/svg/minus.svg?raw";
+
+const { q, a } = Astro.props;
+---
+
+<details>
+  <summary>
+    {q}
+    <div class='icon-plus'><Fragment set:html={plusIcon} /></div>
+    <div class='icon-min'><Fragment set:html={minIcon} /></div>
+  </summary>
+  <p>
+    {a}
+  </p>
+</details>
