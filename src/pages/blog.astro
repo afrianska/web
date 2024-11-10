@@ -4,14 +4,17 @@ import HeaderBlog from "../components/HeaderBlog.astro";
 import BlogPost from "../components/BlogPost.astro";
 
 const allPosts = await Astro.glob("./blog/*.md");
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime();
+});
 ---
 
 <HomeLayout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
   <main id='home' class='home-body'>
     <HeaderBlog />
-    <section class='blog-list h-screen'>
+    <section class='blog-list h-full'>
       {
-        allPosts.map((post) => (
+        sortedPosts.map((post) => (
           <BlogPost
             url={post.url}
             title={post.frontmatter.title}

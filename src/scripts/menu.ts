@@ -1,5 +1,6 @@
 let hamburger = document.getElementById("hamburger");
 let menuHam = document.getElementById("menu-hamburger");
+let menuProduct = document.getElementById("productsMenu");
 
 let navHam = document.getElementById("nav-hamburger");
 let menu = document.getElementById("menu");
@@ -25,3 +26,4 @@ function closeMenu() {
 
 hamburger?.addEventListener("click", openMenu);
 menuHam?.addEventListener("click", closeMenu);
+menuProduct?.addEventListener("click", closeMenu);

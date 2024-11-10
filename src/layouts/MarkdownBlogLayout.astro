@@ -7,11 +7,11 @@ const { frontmatter } = Astro.props;
 <HomeLayout pageTitle={frontmatter.title}>
   <main id='home' class='home-body'>
     <HeaderBlog />
-    <section class='blog-content h-screen capitalize'>
+    <section class='blog-content h-full'>
       <div class='flex flex-col gap-2'>
-        <h3>{frontmatter.title}</h3>
+        <h3 class='capitalize'>{frontmatter.title}</h3>
         <div class='flex flex-row gap-2'>
-          <p>April,16, 2020</p>
+          <p>{frontmatter.pubDate}</p>
           <p>•</p>
           <p>By {frontmatter.author}</p>
         </div>

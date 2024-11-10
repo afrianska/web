@@ -5,7 +5,7 @@ author: 'Ben'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
-pubDate: 2020-01-01
+pubDate: 2023-01-01
 description: 'This is the first post of my new Astro blog.'
 ---
 

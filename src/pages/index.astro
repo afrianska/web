@@ -1,6 +1,7 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
 import CardFAQ from "../components/CardFAQ.astro";
+import BlogPostHome from "../components/BlogPostHome.astro";
 
 import globeIcon from "/svg/disabled/globe.svg?raw";
 import phoneIcon from "/svg/disabled/smartphone.svg?raw";
@@ -15,6 +16,13 @@ import twitterIcon from "/svg/twitter.svg?raw";
 import instagramIcon from "/svg/instagram.svg?raw";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
+
+const allPosts = await Astro.glob("./blog/*.md");
+const sortedPosts = allPosts
+  .sort((a, b) => {
+    return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime();
+  })
+  .slice(0, 4);
 ---
 
 <HomeLayout pageTitle='Afrian EP: Design And Develop Your Web And Mobila App.'>
@@ -73,7 +81,7 @@ import designSparkLogo from "/logo/design-spark.svg?raw";
               <Fragment set:html={phoneIcon} />
               <Fragment set:html={bagIcon} />
             </div>
-            <a class='btn-text-secondary' href=''>Visit</a>
+            <a class='btn-text-secondary' href='/contact'>Visit</a>
           </div>
         </div>
       </div>
@@ -130,74 +138,20 @@ import designSparkLogo from "/logo/design-spark.svg?raw";
     <section class='blog-home'>
       <h5 class='section-title'>RECENT WRITING</h5>
       <div class='blog-list-home'>
-        <div class='card-blog-home'>
-          <div class='time-line'>
-            <div class='line'></div>
-            <div class='circle'></div>
-          </div>
-          <div class='blog-item'>
-            <p class='date-item'>April,16, 2020</p>
-            <div class='title-desc'>
-              <h4>Mobile App Design Case Study: Planting Tutorial And Advice App.</h4>
-              <p>
-                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
-                first time plant a type of new plant.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class='card-blog-home'>
-          <div class='time-line'>
-            <div class='line'></div>
-            <div class='circle'></div>
-          </div>
-          <div class='blog-item'>
-            <p class='date-item'>April,16, 2020</p>
-            <div class='title-desc'>
-              <h4>Mobile App Design Case Study: Planting Tutorial And Advice App.</h4>
-              <p>
-                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
-                first time plant a type of new plant.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class='card-blog-home'>
-          <div class='time-line'>
-            <div class='line'></div>
-            <div class='circle'></div>
-          </div>
-          <div class='blog-item'>
-            <p class='date-item'>April,16, 2020</p>
-            <div class='title-desc'>
-              <h4>Mobile App Design Case Study: Planting Tutorial And Advice App.</h4>
-              <p>
-                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
-                first time plant a type of new plant.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class='card-blog-home'>
-          <div class='time-line'>
-            <div class='line'></div>
-            <div class='circle'></div>
-          </div>
-          <div class='blog-item'>
-            <p class='date-item'>April,16, 2020</p>
-            <div class='title-desc'>
-              <h4>Mobile App Design Case Study: Planting Tutorial And Advice App.</h4>
-              <p>
-                Design a trusted and fun farming app for beginners with 15–45-year-olds that for the
-                first time plant a type of new plant.
-              </p>
-            </div>
-          </div>
-        </div>
+        {
+          sortedPosts.map((post) => (
+            <BlogPostHome
+              url={post.url}
+              title={post.frontmatter.title}
+              date={post.frontmatter.pubDate}
+              desc={post.frontmatter.description}
+            />
+          ))
+        }
       </div>
       <a class='btn-text-secondary' href='/blog'>SEE ALL POST</a>
     </section>
-    <section class='products'>
+    <section id='products' class='products'>
       <h5 class='section-title'>PERSONAL PRODUCTS</h5>
       <div class='product-list'>
         <div class='card-product-item'>
