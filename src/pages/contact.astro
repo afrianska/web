@@ -1,9 +1,12 @@
 ---
 import ContactLayout from "../layouts/ContactLayout.astro";
 import HeaderContact from "../components/HeaderContact.astro";
+
+import mailIcon from "/svg/mail.svg?raw";
+import messageCircleIcon from "/svg/message-circle.svg?raw";
 ---
 
-<ContactLayout pageTitle='Book A Call Afrian'>
+<ContactLayout pageTitle='Book A Call with Afrian'>
   <main id='home' class='w-full h-full mx-auto'>
     <HeaderContact />
     <section class='flex flex-col justify-center h-fit w-full py-16'>
@@ -14,8 +17,23 @@ import HeaderContact from "../components/HeaderContact.astro";
       >
       </div>
     </section>
+    <section class='contact-us'>
+      <h3>Contact Info</h3>
+      <div class='list-contact'>
+        <a
+          class='btn-icon-text'
+          href='mailto:hello.afrian@gmail.com?subject=Interesting To Colaborate'
+        >
+          <Fragment set:html={mailIcon} />
+          <span>hello.afrian@gmail.com</span>
+        </a>
+        <a class='btn-icon-text' href='https://wa.me/6281273134321' target='_blank'>
+          <Fragment set:html={messageCircleIcon} />
+          <span>+62-812-7313-4321</span>
+        </a>
+      </div>
+    </section>
   </main>
-  <section class='w-full'></section>
 </ContactLayout>
 
 <!-- Cal inline embed code begins -->
