@@ -434,6 +434,7 @@ img {
 .header-contact {
   @apply flex flex-col w-full md:w-[640px]
   pt-32 lg:pt-16 gap-10 mx-auto
+  px-4 md:px-0
 }
 
 .header-contact .title-desc {
@@ -445,9 +446,23 @@ img {
   @apply font-bold text-6xl
 }
 
+.contact-body {
+  @apply w-full h-full mx-auto
+}
+
+.contact-header {
+  @apply w-full h-full mx-auto
+  px-4
+}
+
+.cal-contact {
+  @apply flex flex-col justify-center
+  h-fit w-full py-16 px-4
+}
+
 .contact-us {
-  @apply flex flex-col w-[640px]
-  mx-auto pb-40 gap-10
+  @apply flex flex-col w-full md:w-[640px]
+  mx-auto pb-20 md:pb-40 gap-10 px-4 md:px-0
 }
 
 .contact-us h3 {
@@ -455,8 +470,8 @@ img {
 }
 
 .contact-us .list-contact {
-  @apply flex flex-row items-center
-  gap-10
+  @apply flex flex-wrap md:flex-row items-center
+  gap-10 justify-center md:justify-start
 }
 
 
