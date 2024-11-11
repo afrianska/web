@@ -2,23 +2,39 @@
 import HomeLayout from "./HomeLayout.astro";
 import HeaderBlog from "../components/HeaderBlog.astro";
 const { frontmatter } = Astro.props;
+const { minutesRead } = Astro.props.frontmatter;
+
+function formatDate(dateString: any) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+const tags: any = frontmatter.tags;
 ---
 
 <HomeLayout pageTitle={frontmatter.title}>
   <main id='home' class='home-body'>
     <HeaderBlog />
     <section class='blog-content h-full'>
-      <div class='flex flex-col gap-2'>
-        <h3 class='capitalize'>{frontmatter.title}</h3>
-        <div class='flex flex-row gap-2'>
-          <p>{frontmatter.pubDate}</p>
+      <div class='flex flex-col gap-4'>
+        <h1 class='capitalize'>{frontmatter.title}</h1>
+        <div class='flex flex-row gap-2 border-y py-3'>
+          <p>{minutesRead}</p>
           <p>•</p>
-          <p>By {frontmatter.author}</p>
+          <p>{formatDate(frontmatter.pubDate)}</p>
         </div>
       </div>
-      <slot />
-      <div class='tags'>
-        <p class='tag'>Design</p>
+      <div class='content'>
+        <slot />
+      </div>
+      <div class='tags flex flex-col gap-3'>
+        <h5 class='font-medium'>Tags</h5>
+        <div class='flex flex-wrap gap-3'>
+          {tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
+        </div>
       </div>
     </section>
   </main>

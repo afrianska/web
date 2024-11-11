@@ -1,16 +1,22 @@
 ---
 const { title, date, url, img } = Astro.props;
+
+function formatDate(dateString: any) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
 ---
 
 <a href={url} class='card-blog-item'>
   <div class='thumbnail' style=`background-image: url(${img});`></div>
   <div class='detail'>
     <div class='desc'>
-      <p>{date.toString().slice(0, 10)}</p>
+      <p>{formatDate(date)}</p>
       <h5>{title}</h5>
-    </div>
-    <div class='tags'>
-      <p class='tag'>Design</p>
     </div>
   </div>
 </a>
