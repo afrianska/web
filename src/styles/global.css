@@ -370,11 +370,11 @@ img {
   @apply text-neutral-900 font-bold capitalize
 }
 
-blog-list .card-blog-item .detail .tags {
+.blog-list .card-blog-item .detail .tags {
   @apply flex flex-wrap gap-3
 }
 
-blog-list .card-blog-item .detail .tags p {
+.blog-list .card-blog-item .detail .tags p {
   @apply text-neutral-300 font-light text-sm
 }
 
@@ -427,6 +427,25 @@ blog-list .card-blog-item .detail .tags p {
 .blog-content ul li {
   @apply py-1
 }
+
+
+/* Page Contact */
+/* Contact section styles */
+.header-contact {
+  @apply flex flex-col w-full md:w-[640px]
+  pt-32 lg:pt-16 gap-10 mx-auto
+}
+
+.header-contact .title-desc {
+  @apply flex flex-col w-full
+  gap-3 justify-center text-center
+}
+
+.header-contact .title-desc h1 {
+  @apply font-bold text-6xl
+}
+
+
 
 
 .footer {
