@@ -1,6 +1,5 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
-import CardFAQ from "../components/CardFAQ.astro";
 import BlogPostHome from "../components/BlogPostHome.astro";
 
 import globeIcon from "/svg/disabled/globe.svg?raw";
@@ -161,31 +160,6 @@ const sortedPosts = allPosts
             <p>A figma plugin</p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class='faq'>
-      <h5 class='section-title'>Frequently Asked Questions</h5>
-      <div class='faq-list'>
-        <CardFAQ
-          q='What services do you offer?'
-          a=`Currently, I'm offering services: UI/UX design, web development, brand identity, icon design.`
-        />
-        <CardFAQ
-          q='How long does it usually take to finish a project?'
-          a='Depending on the kind of project and how complex it is. For example, UI/UX design for a web with 5 pages could be finished in 1 week. But again, depends on how complex it is.'
-        />
-        <CardFAQ
-          q='Can I collaborate on just one kind of project from all your service offers?'
-          a='Yes, you can. Choose only what you need either UI/UX design, web development, etc'
-        />
-        <CardFAQ
-          q='What do I need to have ready before starting a project with you?'
-          a='You can book a call with me for free and conduct a consultation session before we decide whether our collaboration is needed.'
-        />
-        <CardFAQ
-          q='Do you offer support or updates after a project is completed, and how does that work?'
-          a=`It's depends on the contract deal, after everything in the contract finished you can re-hire me again.`
-        />
       </div>
     </section>
   </main>
