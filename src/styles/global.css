@@ -56,7 +56,7 @@ img {
     @apply flex flex-row items-center gap-2
     py-3 px-3 lg:px-5 text-base font-medium
     border border-neutral-300 rounded-lg
-    cursor-pointer bg-white bg-opacity-80
+    cursor-pointer bg-white
     w-fit h-fit select-none
 }
 
@@ -78,10 +78,9 @@ img {
 
 .btn-text-secondary {
     @apply flex flex-row items-center
-    py-3 px-5 text-base font-medium
-    rounded-lg border cursor-pointer
-    w-fit h-fit select-none bg-white 
-    border-neutral-300 bg-opacity-80
+    p-3 border border-neutral-300 rounded-lg
+    cursor-pointer bg-white
+    w-fit h-fit select-none
 }
 
 .btn-icon {
