@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
+import { SpeedInsights } from "@vercel/speed-insights/next";
 ---
 
 <html lang='en'>
@@ -24,5 +25,6 @@ const { pageTitle } = Astro.props;
       defer
       src='https://cloud.umami.is/script.js'
       data-website-id='e5b04287-696c-40d9-8aa9-9578f9d3d34f'></script>
+    <SpeedInsights />
   </body>
 </html>
