@@ -1,0 +1,28 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+    <!-- Scrips -->
+    <script src='/src/scripts/menu.ts'></script>
+    <script
+      defer
+      src='https://cloud.umami.is/script.js'
+      data-website-id='e5b04287-696c-40d9-8aa9-9578f9d3d34f'></script>
+    <SpeedInsights />
+  </body>
+</html>

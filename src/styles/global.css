@@ -477,6 +477,76 @@ img {
 }
 
 
+/* Page Links */
+/* header section styles */
+.main-container {
+  @apply w-full h-full bg-white 
+   px-4 md:px-0
+}
+
+.link-container {
+  @apply w-full md:w-[480px] mx-auto
+  pb-24
+}
+
+.header-link {
+  @apply w-full flex flex-col gap-3 py-16
+  justify-center items-center
+}
+
+.header-link .desc {
+  @apply w-full flex flex-col gap-1
+  justify-center items-center
+}
+
+.header-link img {
+  @apply h-24 w-24 rounded-full
+}
+
+.header-link h3 {
+  @apply font-bold
+}
+
+.list-link {
+  @apply flex flex-col gap-10
+}
+
+.list-link-section {
+  @apply flex flex-col gap-4
+}
+
+.list-link-section h5{
+  @apply font-medium
+}
+
+.list-link-section ul {
+  @apply flex flex-col gap-3
+}
+
+.btn-link {
+  @apply p-4 w-full flex flex-row justify-between
+  border border-neutral-300 rounded-xl font-medium
+}
+
+.btn-link:hover {
+  @apply border-neutral-900 bg-amber-400
+}&&
+
+.btn-link svg {
+  @apply opacity-30 
+}
+
+.btn-link:hover svg {
+  @apply opacity-100
+}
+
+.link-with-icon {
+  @apply flex flex-row gap-4 items-center
+}
+
+
+
+
 
 .footer {
   @apply flex flex-col lg:flex-row justify-between

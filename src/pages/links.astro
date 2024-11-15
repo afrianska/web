@@ -1,0 +1,153 @@
+---
+import LinksLayout from "../layouts/LinksLayout.astro";
+
+import globeIcon from "/svg/globe.svg?raw";
+import goIcon from "/svg/move-right.svg?raw";
+import cvIcon from "/svg/file-text.svg?raw";
+import dribbbleIcon from "/svg/dribbble.svg?raw";
+import behanceIcon from "/svg/behance.svg?raw";
+import githubIcon from "/svg/github.svg?raw";
+import linkedinIcon from "/svg/linkedin.svg?raw";
+import twitterIcon from "/svg/twitter.svg?raw";
+import instagramIcon from "/svg/instagram.svg?raw";
+import mailIcon from "/svg/mail.svg?raw";
+import waIcon from "/svg/whatsapp.svg?raw";
+import fbIcon from "/svg/facebook.svg?raw";
+---
+
+<LinksLayout>
+  <main class='main-container'>
+    <div class='link-container'>
+      <div class='header-link'>
+        <img src='/avatar.png' alt='' />
+        <div class='desc'>
+          <h3>Afrian EP</h3>
+          <p>UX Designer who write code.</p>
+        </div>
+      </div>
+      <div class='list-link'>
+        <!-- professional link -->
+        <div class='list-link-section'>
+          <!-- <h5>Professional Links</h5> -->
+          <ul>
+            <li>
+              <a class='btn-link' href='https://afrian.cc'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={globeIcon} />
+                  <span>Website</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://github.com/afrianska'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={githubIcon} />
+                  <span>Github</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://dribbble.com/afrianska'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={dribbbleIcon} />
+                  <span>Dribbble</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://www.behance.net/afrianska'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={behanceIcon} />
+                  <span>Behance</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://www.linkedin.com/in/afrian'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={linkedinIcon} />
+                  <span>Linkedin</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- contact link -->
+        <div class='list-link-section'>
+          <h5>Contact</h5>
+          <ul>
+            <li>
+              <a
+                class='btn-link'
+                href='mailto:hello.afrian@gmail.com?subject=Interesting To Colaborate'
+              >
+                <div class='link-with-icon'>
+                  <Fragment set:html={mailIcon} />
+                  <span>Email</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://wa.me/6281273134321'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={waIcon} />
+                  <span>WhatsApp</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- sosmed link -->
+        <div class='list-link-section'>
+          <h5>Social Media</h5>
+          <ul>
+            <li>
+              <a class='btn-link' href='https://x.com/afrianska' '>
+                <div class='link-with-icon'>
+                  <Fragment set:html={twitterIcon} />
+                  <span>Twitter</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://www.instagram.com/afrianep'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={instagramIcon} />
+                  <span>Instagram</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+            <li>
+              <a class='btn-link' href='https://www.facebook.com/afrian.id'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={fbIcon} />
+                  <span>Facebook</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+
+            <li>
+              <a class='btn-link' href='https://bsky.app/profile/afrianska.bsky.social'>
+                <div class='link-with-icon'>
+                  <Fragment set:html={globeIcon} />
+                  <span>Bluesky</span>
+                </div>
+                <Fragment set:html={goIcon} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</LinksLayout>
