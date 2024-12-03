@@ -1,7 +1,8 @@
 ---
-import HomeLayout from "../layouts/HomeLayout.astro";
-import HeaderBlog from "../components/HeaderBlog.astro";
-import BlogPost from "../components/BlogPost.astro";
+import Layout from "../layouts/BaseLayout.astro";
+import HeaderBlog from "../components/organisms/HeaderBlog.astro";
+import CardPost from "../components/organisms/CardPost.astro";
+import Nav from "../components/organisms/Nav.astro";
 
 const allPosts = await Astro.glob("./blog/*.md");
 const sortedPosts = allPosts.sort((a, b) => {
@@ -9,20 +10,21 @@ const sortedPosts = allPosts.sort((a, b) => {
 });
 ---
 
-<HomeLayout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
-  <main id='home' class='home-body'>
+<Layout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
+  <Nav selected='blog' />
+  <main id='home' class='main-narrow-container'>
     <HeaderBlog />
-    <section class='blog-list h-full'>
+    <section class='blog-list'>
       {
         sortedPosts.map((post) => (
-          <BlogPost
+          <CardPost
             url={post.url}
             title={post.frontmatter.title}
-            img={post.frontmatter.image.url}
             date={post.frontmatter.pubDate}
+            desc={post.frontmatter.description}
           />
         ))
       }
     </section>
   </main>
-</HomeLayout>
+</Layout>

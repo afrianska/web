@@ -1,10 +1,12 @@
 ---
-import ContactLayout from "../layouts/ContactLayout.astro";
-import HeaderContact from "../components/HeaderContact.astro";
-import CardFAQ from "../components/CardFAQ.astro";
+import Layout from "../layouts/BaseLayout.astro";
+import HeaderContact from "../components/organisms/HeaderContact.astro";
+import CardFAQ from "../components/organisms/CardFAQ.astro";
+import Nav from "../components/organisms/Nav.astro";
 ---
 
-<ContactLayout pageTitle='Book A Call with Afrian'>
+<Layout pageTitle='Book A Call with Afrian'>
+  <Nav selected='contact' />
   <main id='home' class='contact-body'>
     <HeaderContact />
     <section class='cal-contact'>
@@ -41,7 +43,7 @@ import CardFAQ from "../components/CardFAQ.astro";
       </div>
     </section>
   </main>
-</ContactLayout>
+</Layout>
 
 <!-- Cal inline embed code begins -->
 

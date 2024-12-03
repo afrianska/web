@@ -1,18 +1,15 @@
 ---
-import HomeLayout from "../layouts/HomeLayout.astro";
-import BlogPostHome from "../components/BlogPostHome.astro";
+import Layout from "../layouts/BaseLayout.astro";
+import CardPost from "../components/organisms/CardPost.astro";
+import Nav from "../components/organisms/Nav.astro";
 
-import globeIcon from "/svg/disabled/globe.svg?raw";
-import phoneIcon from "/svg/disabled/smartphone.svg?raw";
-import monitorIcon from "/svg/disabled/monitor.svg?raw";
-import bagIcon from "/svg/disabled/briefcase.svg?raw";
-import fileIcon from "/svg/disabled/scroll-text.svg?raw";
+import Link from "../components/atoms/SpecialLink.astro";
+
 import cvIcon from "/svg/file-text.svg?raw";
 import dribbbleIcon from "/svg/dribbble.svg?raw";
+import behanceIcon from "/svg/behance.svg?raw";
 import githubIcon from "/svg/github.svg?raw";
 import linkedinIcon from "/svg/linkedin.svg?raw";
-import twitterIcon from "/svg/twitter.svg?raw";
-import instagramIcon from "/svg/instagram.svg?raw";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
 
@@ -24,107 +21,72 @@ const sortedPosts = allPosts
   .slice(0, 4);
 ---
 
-<HomeLayout pageTitle='Afrian EP: Design And Develop Your Web And Mobila App.'>
-  <main id='home' class='home-body'>
+<Layout pageTitle='Afrian EP: Design And Develop Your Web And Mobila App.'>
+  <Nav selected='home' />
+  <main id='home' class='main-narrow-container'>
     <section class='hero'>
-      <div class='welcome'>
-        <div class='avatar'>
-          <img src='/avatar.png' alt='afrian photo' />
+      <div class='status'>
+        <div class='status-label'>
+          <div id='box' class='bg-emerald-500 h-3 w-3'></div>
+          <p>Currently Available</p>
         </div>
-        <div class='greetings'>
-          <h1>Hi, I'm <span class='font-bold'>Afrian EP</span></h1>
-          <h3>A designer who writes code.</h3>
-        </div>
+      </div>
+      <div class='greetings'>
+        <h1>Hi, I'm <span class='font-bold'>Afrian EP</span></h1>
+        <h4>A freelance UX designer who write code.</h4>
       </div>
       <div class='links'>
-        <div class='links-left'>
-          <a class='btn-icon' href='https://dribbble.com/afrianska' target='_blank'>
-            <Fragment set:html={dribbbleIcon} />
-          </a>
-          <a class='btn-icon' href='https://github.com/afrianska' target='_blank'>
-            <Fragment set:html={githubIcon} />
-          </a>
-          <a class='btn-icon' href='https://www.linkedin.com/in/afrian/' target='_blank'>
-            <Fragment set:html={linkedinIcon} />
-          </a>
-          <a class='btn-icon' href='https://x.com/afrianska' target='_blank'>
-            <Fragment set:html={twitterIcon} />
-          </a>
-          <a class='btn-icon' href='https://www.instagram.com/afrianep/' target='_blank'>
-            <Fragment set:html={instagramIcon} />
-          </a>
-        </div>
-        <div class='links-right'>
-          <a class='btn-icon-text' href='/afrian-resume.pdf' target='_blank'>
-            <span>Resume</span>
-            <Fragment set:html={cvIcon} />
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class='projects'>
-      <div class='card'>
-        <div class='thumbnail' style='background-image: url(/portfolio/3.jpg);'></div>
-        <div class='detail'>
-          <div class='title-desc'>
-            <h5>Durner</h5>
-            <p>Constration company.</p>
-          </div>
-          <div class='scope-visit-link'>
-            <div class='scope'>
-              <Fragment set:html={globeIcon} />
-              <Fragment set:html={fileIcon} />
-            </div>
-            <a class='btn-icon-disabled' href='https://work.afrian.cc/'>Visit</a>
-          </div>
-        </div>
-      </div>
-      <div class='card'>
-        <div class='thumbnail' style='background-image: url(/portfolio/2.png);'></div>
-        <div class='detail'>
-          <div class='title-desc'>
-            <h5>Visanation</h5>
-            <p>Visa & Passport agency.</p>
-          </div>
-          <div class='scope-visit-link'>
-            <div class='scope'>
-              <Fragment set:html={globeIcon} />
-              <Fragment set:html={fileIcon} />
-            </div>
-            <a class='btn-icon-disabled' href='https://work.afrian.cc/'>Visit</a>
-          </div>
-        </div>
-      </div>
-      <div class='card'>
-        <div class='thumbnail' style='background-image: url(/portfolio/1.png);'></div>
-        <div class='detail'>
-          <div class='title-desc'>
-            <h5>Nocturnal</h5>
-            <p>Design agency.</p>
-          </div>
-          <div class='scope-visit-link'>
-            <div class='scope'>
-              <Fragment set:html={globeIcon} />
-              <Fragment set:html={fileIcon} />
-            </div>
-            <a class='btn-icon-disabled' href='https://work.afrian.cc/'>Visit</a>
-          </div>
-        </div>
-      </div>
-      <div class='card-interested'>
-        <div class='desc'>
-          <h3>Interested In Collaborating?</h3>
-          <p>I’m crafting and developing a better experience for your web & mobile app.</p>
-        </div>
-        <a class='btn-text' href='/contact'>GET IN TOUCH</a>
+        <Link
+          icon={githubIcon}
+          linkTo='https://github.com/afrianska'
+          title='Repository'
+          label='afrianska'
+        />
+        <Link
+          icon={dribbbleIcon}
+          linkTo='https://dribbble.com/afrianska'
+          title='Design Exploration'
+          label='afrianska'
+        />
+        <Link
+          icon={behanceIcon}
+          linkTo='https://www.behance.net/afrianska/projects'
+          title='Study Case'
+          label='afrianska'
+        />
+
+        <Link
+          icon={linkedinIcon}
+          linkTo='https://www.linkedin.com/in/afrian'
+          title='LinkedIn'
+          label='afrian'
+        />
+        <Link icon={cvIcon} linkTo='/afrian.pdf' title='Resume' label='afrian.pdf' />
       </div>
     </section>
     <section class='blog-home'>
-      <h5 class='section-title'>RECENT WRITING</h5>
+      <div class='title-section'>
+        <h5 class='section-title'>RECENT WRITINGS</h5>
+        <a href='/blog'>
+          <span>View All</span>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            ><path d='M18 8L22 12L18 16'></path><path d='M2 12H22'></path></svg
+          >
+        </a>
+      </div>
       <div class='blog-list-home'>
         {
           sortedPosts.map((post) => (
-            <BlogPostHome
+            <CardPost
               url={post.url}
               title={post.frontmatter.title}
               date={post.frontmatter.pubDate}
@@ -133,10 +95,9 @@ const sortedPosts = allPosts
           ))
         }
       </div>
-      <a class='btn-text-secondary' href='/blog'>SEE ALL POST</a>
     </section>
     <section id='products' class='products'>
-      <h5 class='section-title'>PERSONAL PRODUCTS</h5>
+      <h5 class='section-title'>PRODUCTS</h5>
       <div class='product-list'>
         <div class='card-product-item'>
           <Fragment set:html={designSparkLogo} />
@@ -148,4 +109,19 @@ const sortedPosts = allPosts
       </div>
     </section>
   </main>
-</HomeLayout>
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  const box = document.getElementById("box");
+  const myTimeline = gsap.timeline();
+
+  myTimeline
+    .from(box, {
+      opacity: 0,
+    })
+    .to(box, {
+      rotation: "-=180",
+      repeat: -1,
+    });
+</script>

@@ -1,0 +1,7 @@
+---
+const { company, urlImg } = Astro.props;
+---
+
+<div class='thumbnail' style={{ backgroundImage: `url(${urlImg})` }}>
+  <div class='btn-text-secondary'>{company}</div>
+</div>

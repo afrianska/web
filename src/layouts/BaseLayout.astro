@@ -1,10 +1,10 @@
 ---
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
+import Footer from "../components/organisms/Footer.astro";
 
 const { pageTitle } = Astro.props;
-import SpeedInsights from "@vercel/speed-insights/astro";
 ---
 
 <html lang='en'>
@@ -15,12 +15,10 @@ import SpeedInsights from "@vercel/speed-insights/astro";
     <meta name='generator' content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class='max-w-full max-h-full'>
-    <Nav />
+  <body>
     <slot />
     <Footer />
     <!-- Scrips -->
-    <script src='/src/scripts/menu.ts'></script>
     <script
       defer
       src='https://cloud.umami.is/script.js'

@@ -10,11 +10,11 @@
 }
 
 body {
-    @apply font-inter
-    bg-neutral-100 relative
-    max-w-full my-auto mx-0
-    text-neutral-900
-    border-neutral-300
+    @apply relative
+    max-w-full max-h-full
+    my-auto mx-0
+    bg-gray-50
+    text-gray-900
 }
 
 h1 {
@@ -39,7 +39,6 @@ h5 {
 
 p {
   @apply text-base font-light
-  text-neutral-600
 }
 
 svg {
@@ -51,18 +50,147 @@ img {
   
 }
 
+nav {
+  @apply fixed z-50 top-3
+  w-full;
+}
+
+.circle {
+  @apply bg-emerald-400 rounded-full w-2 h-2;
+}
+
+/* Button */
+.button-primary {
+    @apply py-2 px-4 text-center
+    rounded-md border
+    font-semibold text-gray-50
+    bg-emerald-700 border-emerald-400;
+  }
+
+.button-primary:hover {
+    @apply bg-emerald-500 border-emerald-200;
+  }
+
+/* Menu stryle */
+.menu {
+  @apply w-[640px] mx-auto
+  hidden
+  md:flex flex-row justify-between items-center
+  pl-6 pr-3 py-3
+  rounded-2xl
+  bg-gray-900;
+}
+
+.menu ul {
+    @apply flex flex-row gap-6;
+}
+
+.menu ul li a:hover {
+  @apply text-emerald-400;
+}
+
+.menu ul li .selected {
+  @apply text-emerald-400 font-bold;
+}
+
+.menu ul li .unselected {
+  @apply text-gray-50 font-normal;
+}
+
+/* Menu Mobile stryle */
+.menu-mobile {
+    @apply grid md:hidden justify-items-end
+    mx-4 top-2
+   ;
+}
+
+.list-menu-body {
+  @apply flex flex-col gap-4;
+}
+
+.list-menu-body li a {
+  @apply flex flex-row gap-2 w-full items-center
+  px-3 py-2 bg-gray-900 text-gray-50
+  bg-opacity-90 border border-gray-700 border-opacity-25
+  rounded-lg;
+}
+
+.list-menu-body li a .icon {
+  @apply p-2 bg-gray-700 text-gray-300
+  border border-gray-500 border-opacity-25
+  rounded-lg w-fit h-fit;
+}
+
+.list-menu-body li a .label {
+  @apply flex flex-col w-full;
+}
+
+.list-menu-body li a .label .title-line {
+  @apply flex flex-row justify-between items-center
+  w-full;
+}
+
+.list-menu-body li a .label .title {
+  @apply text-base font-semibold;
+}
+
+.list-menu-body li a .label .desc {
+  @apply text-sm font-light text-gray-500;
+}
+
+
+
+.card-post {
+  @apply flex flex-row gap-8 pl-4
+}
+
+.card-post .time-line {
+  @apply w-fit relative
+}
+
+.card-post .time-line .line {
+  @apply w-1 h-full bg-neutral-300
+}
+
+.card-post .time-line .circle {
+  @apply w-3 h-3 rounded-full bg-emerald-500 
+  absolute top-6 -left-1 border-2 border-neutral-100
+}
+
+.card-post .blog-item {
+  @apply flex flex-col pt-5 pb-8 gap-4
+}
+
+.card-post .blog-item p.date-item {
+  @apply font-normal text-sm text-gray-900
+}
+
+.card-post .blog-item .title-desc {
+  @apply flex flex-col gap-1
+}
+
+.card-post .blog-item .title-desc h4 {
+  @apply font-bold
+}
+
+
+
+
+
+
+
 
 .btn-icon-text {
     @apply flex flex-row items-center gap-2
-    py-3 px-3 lg:px-5 text-base font-medium
-    border border-neutral-300 rounded-lg
-    cursor-pointer bg-white
-    w-fit h-fit select-none
+    py-2 px-3 lg:px-5 text-base font-medium
+    rounded-lg cursor-pointer
+    bg-gray-900 text-gray-50
+    w-fit h-fit select-none 
 }
 
 .btn-icon-text-secondary {
     @apply flex flex-row items-center gap-2
-    py-3 px-3 lg:px-5 text-base font-medium
+    py-3 px-2 lg:px-5 text-base font-medium
     border border-white rounded-lg
     cursor-pointer text-white
     w-fit h-fit select-none
@@ -110,7 +238,7 @@ img {
 }
 
 .section-title {
-  @apply text-neutral-900
+  @apply text-gray-900
   font-light uppercase select-none
 }
 
@@ -121,103 +249,69 @@ img {
     bg-white lg:bg-none lg:bg-opacity-0
 }
 
-.home-body {
-  @apply w-full md:w-[640px] mx-auto h-full
-  border-r border-l border-neutral-100
+
+.main-narrow-container {
+  @apply w-full md:w-[640px] min-h-screen
+  px-4 md:px-0 mx-auto 
   flex flex-col items-center
-  px-4 md:px-0
+}
+
+.main-container {
+  @apply w-full h-full bg-white 
+   px-4 md:px-0
 }
 
 /* hero section styles */
 .hero {
   @apply flex flex-col w-full md:w-[640px]
-  pt-32 gap-10 
+  mt-3 md:mt-44 gap-14 mb-16
 }
 
-.hero .welcome {
-  @apply flex flex-col lg:flex-row items-center 
-  gap-8 md:gap-10
+.hero .status {
+  @apply rounded-full
+  w-fit py-[10px] px-5
+  bg-gradient-to-r from-emerald-100 to-transparent
 }
 
-.hero .welcome .avatar {
-  @apply p-3 rounded-2xl border bg-white bg-opacity-95
-}
-
-.hero .welcome .avatar img {
-  @apply h-28 w-28 rounded-lg
-}
-
-.hero .welcome .greetings {
-  @apply flex flex-col text-center lg:text-left
-  gap-2 lg:gap-4
-}
-
-.hero .welcome .greetings h3 {
-  @apply font-light text-neutral-600
-}
-
-.hero .links {
-  @apply flex flex-row items-center justify-between
-}
-
-.hero .links .links-left {
-  @apply flex flex-row gap-5 items-center
-}
-
-/* project section styles */
-.projects {
-  @apply flex flex-wrap w-full md:w-[640px]
-  py-16 gap-10
-}
-
-.projects .card {
-  @apply flex flex-col p-4 gap-6
-  rounded-xl h-full w-full md:w-[300px]
-  bg-white drop-shadow-2xl
-}
-
-.projects .card .thumbnail {
-  @apply w-full h-[200px] overflow-hidden
-  rounded-lg bg-neutral-100
-  bg-no-repeat bg-cover bg-top
-}
-
-.projects .card .detail {
-  @apply flex flex-col gap-4
-}
-
-.projects .card .detail .title-desc {
-  @apply flex flex-col gap-1
-}
-
-.projects .card .detail .title-desc h5 {
-  @apply font-semibold
-}
-
-.projects .card .detail .scope-visit-link {
-  @apply flex flex-row justify-between items-center
-}
-
-.projects .card .detail .scope-visit-link .scope {
+.hero .status .status-label {
   @apply flex flex-row gap-3 items-center
 }
 
-.projects .card .detail .scope-visit-link .scope img {
-  @apply h-6 w-6 
+.hero .status .status-label p {
+  @apply text-emerald-900 font-normal
 }
 
-.projects .card-interested {
-  @apply flex flex-col px-4 py-8 gap-8
-  rounded-xl h-full w-full md:w-[300px]
+.hero .greetings {
+  @apply flex flex-col text-left
+  gap-1;
 }
 
-.projects .card-interested .desc {
-  @apply flex flex-col gap-5
+.hero .greetings h1 {
+  @apply text-gray-900
 }
 
-.projects .card-interested .desc h3 {
-  @apply font-bold
+.hero .greetings h4 {
+  @apply font-light text-gray-700
 }
+
+.hero .links {
+  @apply flex flex-wrap gap-x-4 gap-y-2 md:gap-y-1;
+}
+
+.hero .links .special-link {
+  @apply flex flex-row items-center
+  gap-1;
+}
+
+.hero .links .special-link .title {
+  @apply text-gray-500;
+}
+
+.hero .links .special-link .link-icon-text {
+  @apply flex flex-row gap-1 items-center
+  font-semibold text-gray-900;
+}
+
 
 /* blog home section */
 .blog-home {
@@ -225,42 +319,20 @@ img {
   py-16 gap-10
 }
 
+.blog-home .title-section {
+  @apply flex flex-row justify-between items-center;
+}
+
+.blog-home .title-section a {
+  @apply flex flex-row gap-2 items-center
+  font-semibold;
+}
+
 .blog-home .blog-list-home {
   @apply flex flex-col gap-0 w-full
 }
 
-.blog-home .blog-list-home .card-blog-home {
-  @apply flex flex-row gap-8 pl-4
-}
 
-.blog-home .blog-list-home .card-blog-home .time-line {
-  @apply w-fit relative
-}
-
-.blog-home .blog-list-home .card-blog-home .time-line .line {
-  @apply w-1 h-full bg-neutral-300
-}
-
-.blog-home .blog-list-home .card-blog-home .time-line .circle {
-  @apply w-3 h-3 rounded-full bg-lime-500 
-  absolute top-6 -left-1 border-2 border-neutral-100
-}
-
-.blog-home .blog-list-home .card-blog-home .blog-item {
-  @apply flex flex-col pt-5 pb-8 gap-4
-}
-
-.blog-home .blog-list-home .card-blog-home .blog-item p.date-item {
-  @apply font-normal text-sm text-neutral-900
-}
-
-.blog-home .blog-list-home .card-blog-home .blog-item .title-desc {
-  @apply flex flex-col gap-1
-}
-
-.blog-home .blog-list-home .card-blog-home .blog-item .title-desc h4 {
-  @apply font-bold
-}
 
 /* products section styles */
 .products {
@@ -276,7 +348,6 @@ img {
 .products .product-list .card-product-item {
   @apply flex flex-col p-4 gap-4
   rounded-xl w-full md:w-[300px]
-  border
 }
 
 .products .product-list .card-product-item svg {
@@ -296,7 +367,7 @@ img {
 /* header blog section styles */
 .header-blog {
   @apply flex flex-col w-full md:w-[640px]
-  pt-32 lg:pt-16 gap-10
+  mt-20 md:mt-40 mb-8 gap-10
 }
 
 .header-blog .title-desc {
@@ -305,90 +376,62 @@ img {
 }
 
 .header-blog .title-desc h1 {
-  @apply font-bold text-6xl
+  @apply font-bold text-4xl md:text-6xl
+  text-gray-900
 }
 
+.header-blog .title-desc p {
+  @apply text-gray-700
+}
+
+/* blog list section styles */
 .blog-list {
-  @apply flex flex-wrap w-full md:w-[640px]
-  pt-12 pb-24 gap-10
+  @apply flex flex-wrap w-full max-h-full md:w-[640px]
+  mt-8 mb-40 gap-10
 }
 
-.blog-list .card-blog-item {
-  @apply flex flex-col p-4 gap-4
-  rounded-xl h-fit w-full md:w-[300px]
-  bg-white drop-shadow-2xl
-}
 
-.blog-list .card-blog-item .thumbnail {
-  @apply w-full h-[200px] overflow-hidden
-  rounded-lg bg-neutral-100
-  bg-no-repeat bg-cover bg-center
-}
-
-.blog-list .card-blog-item .detail {
-  @apply w-full flex flex-col gap-4
-}
-
-.blog-list .card-blog-item .detail .desc {
-  @apply w-full flex flex-col gap-2
-}
-
-.blog-list .card-blog-item .detail .desc p {
-  @apply text-neutral-900
-}
-
-.blog-list .card-blog-item .detail .desc h5 {
-  @apply text-neutral-900 font-bold capitalize
-}
-
-.blog-list .card-blog-item .detail .tags {
-  @apply flex flex-wrap gap-3
-}
-
-.blog-list .card-blog-item .detail .tags p {
-  @apply text-neutral-300 font-light text-sm
-}
 
 /* blog page detail */
 .blog-content {
   @apply flex flex-col w-full md:w-[640px]
-  pt-12 pb-24 gap-10
+  mt-8 pb-24 gap-10
 }
 
 .blog-content .thumbnail {
-  @apply w-full h-[360px] overflow-hidden
+  @apply w-full h-40 md:h-80 overflow-hidden
   rounded-lg bg-neutral-100
   bg-no-repeat bg-cover bg-center
 }
 
 .blog-content .content {
-  @apply flex flex-col gap-4 text-neutral-700
+  @apply flex flex-col gap-4 text-gray-700 
 }
 
 .blog-content h1 {
-  @apply text-neutral-900 font-bold
+  @apply text-gray-900 font-bold
 }
 
 .blog-content h2 {
-  @apply text-neutral-900 font-semibold mt-12
+  @apply text-gray-900 font-bold mt-12
 }
 
 .blog-content h3 {
-  @apply text-neutral-900 font-semibold mt-3
+  @apply text-gray-900 font-bold mt-3
 }
 
 .blog-content h4,
 .blog-content h5 {
-  @apply text-neutral-900 font-semibold
+  @apply text-gray-900 font-semibold
 }
 
 .blog-content p {
-  @apply text-neutral-700 
+  @apply text-gray-900 font-normal
 }
 
 .blog-content figcaption {
   @apply text-center text-xs font-extralight
-  text-neutral-500 mb-4
+  text-gray-500  mb-4
 }
 
 .blog-content ul {
@@ -396,7 +439,11 @@ img {
 }
 
 .blog-content ul li {
-  @apply py-1
+  @apply py-1 font-semibold
+}
+
+.blog-content a {
+  @apply font-semibold underline
 }
 
 
@@ -404,7 +451,8 @@ img {
 /* Contact section styles */
 .header-contact {
   @apply flex flex-col w-full md:w-[640px]
-  pt-32 lg:pt-16 gap-10 mx-auto
+  gap-10 mx-auto
+  mt-20 md:mt-40 mb-8
   px-4 md:px-0
 }
 
@@ -414,7 +462,11 @@ img {
 }
 
 .header-contact .title-desc h1 {
-  @apply font-bold text-6xl
+  @apply font-bold text-4xl md:text-6xl text-gray-900
+}
+
+.header-contact .title-desc p {
+  @apply text-gray-700
 }
 
 .contact-body {
@@ -428,7 +480,7 @@ img {
 
 .cal-contact {
   @apply flex flex-col justify-center
-  h-fit w-full py-16 px-4
+  h-fit w-full pt-8 pb-16 px-4
 }
 
 .contact-us {
@@ -484,12 +536,43 @@ img {
 }
 
 
+/* Page Blog */
+/* header blog section styles */
+.header-works {
+  @apply flex flex-col w-full md:w-[640px]
+  mt-20 md:mt-40 mb-8 gap-10 mx-auto
+  px-4 md:px-0;
+}
+
+.header-works .title-desc {
+  @apply flex flex-col w-full
+  gap-3 justify-center text-center
+}
+
+.header-works .title-desc h1 {
+  @apply font-bold text-4xl md:text-6xl
+  text-gray-900
+}
+
+.header-works .title-desc p {
+  @apply text-gray-700
+}
+
+.works-list {
+  @apply w-full min-h-screen pt-8 md:pt-16 pb-40 px-4 md:px-10 xl:px-24 
+  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
+  gap-8 content-start place-content-center
+}
+
+.works-list .thumbnail {
+  @apply w-full h-[320px] overflow-hidden
+  rounded-lg bg-neutral-100 p-4
+  bg-no-repeat bg-cover bg-center
+}
+
 /* Page Links */
 /* header section styles */
-.main-container {
-  @apply w-full h-full bg-white 
-   px-4 md:px-0
-}
+
 
 .link-container {
   @apply w-full md:w-[480px] mx-auto
@@ -552,23 +635,3 @@ img {
 }
 
 
-
-
-
-.footer {
-  @apply flex flex-col lg:flex-row justify-between
-  w-full items-center px-4 py-10 xl:p-8
-  bg-neutral-900
-  gap-12 md:gap-0
-}
-
-.footer-left {
-  @apply flex flex-col md:flex-row gap-6 md:gap-4
-  text-white text-base font-light
-  text-center md:text-left
-}
-
-.footer-right {
-  @apply flex flex-row gap-3
-  text-neutral-400 text-base font-light
-}

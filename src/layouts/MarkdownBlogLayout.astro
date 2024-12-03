@@ -1,6 +1,8 @@
 ---
-import HomeLayout from "./HomeLayout.astro";
-import HeaderBlog from "../components/HeaderBlog.astro";
+import Layout from "./BaseLayout.astro";
+import HeaderBlog from "../components/organisms/HeaderBlog.astro";
+import Nav from "../components/organisms/Nav.astro";
+
 const { frontmatter } = Astro.props;
 const { minutesRead } = Astro.props.frontmatter;
 
@@ -15,11 +17,13 @@ function formatDate(dateString: any) {
 const tags: any = frontmatter.tags;
 ---
 
-<HomeLayout pageTitle={frontmatter.title}>
-  <main id='home' class='home-body'>
+<Layout pageTitle={frontmatter.title}>
+  <Nav selected='blog' />
+  <main id='home' class='main-narrow-container'>
     <HeaderBlog />
     <section class='blog-content h-full'>
       <div class='flex flex-col gap-4'>
+        <div class='thumbnail' style=`background-image: url(${frontmatter.image.url});`></div>
         <h1 class='capitalize'>{frontmatter.title}</h1>
         <div class='flex flex-row gap-2 border-y py-3'>
           <p>{minutesRead}</p>
@@ -38,4 +42,4 @@ const tags: any = frontmatter.tags;
       </div>
     </section>
   </main>
-</HomeLayout>
+</Layout>
