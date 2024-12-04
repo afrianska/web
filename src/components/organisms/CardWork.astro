@@ -1,7 +1,27 @@
 ---
-const { company, urlImg } = Astro.props;
+const { company, urlImg, urlTo } = Astro.props;
 ---
 
-<div class='thumbnail' style={{ backgroundImage: `url(${urlImg})` }}>
-  <div class='btn-text-secondary'>{company}</div>
+<div class='card-work' style={{ backgroundImage: `url(${urlImg})` }}>
+  <div class='desc'>
+    <div class='flex flex-col'>
+      <h5 class='font-semibold'>{company}</h5>
+      <div class='flex flex-row justify-between items-center'>
+        <p class='text-gray-300'>Web</p>
+        <a href={urlTo}>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'><path d='M7 7h10v10'></path><path d='M7 17 17 7'></path></svg
+          >
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

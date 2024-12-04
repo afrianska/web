@@ -5,10 +5,10 @@ import waIcon from "/svg/whatsapp.svg?raw";
 
 <section class='header-contact'>
   <div class='title-desc'>
-    <h1>Booking A Call</h1>
+    <h1 class='h-large'>Book A Call</h1>
     <p>
-      here are some ways to reach me out: First, you can use Cal event that I put below to make a
-      face-to-face appointment and second, you can send me a message to my email & whatsapp chat.
+      There are some ways to reach me. Go with Cal event for a face-to-face consultation, if you
+      would like to send me a message to go with my email and WhatsApp chat.
     </p>
   </div>
   <div class='flex flex-row justify-between items-center'>
@@ -19,13 +19,15 @@ import waIcon from "/svg/whatsapp.svg?raw";
     </div>
     <div class='flex flex-row items-center gap-3'>
       <a
-        class='btn-icon-secondary'
+        class='btn-icon-text'
         href='mailto:hello.afrian@gmail.com?subject=Interesting To Colaborate'
       >
         <Fragment set:html={mailIcon} />
+        <span>Email</span>
       </a>
-      <a class='btn-icon-secondary' href='https://wa.me/6281273134321' target='_blank'>
+      <a class='btn-icon-text' href='https://wa.me/6281273134321' target='_blank'>
         <Fragment set:html={waIcon} />
+        <span>WhatsApp</span>
       </a>
     </div>
   </div>

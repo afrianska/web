@@ -2,6 +2,7 @@
 import Layout from "../layouts/BaseLayout.astro";
 import CardPost from "../components/organisms/CardPost.astro";
 import Nav from "../components/organisms/Nav.astro";
+import CardProduct from "../components/organisms/CardProduct.astro";
 
 import Link from "../components/atoms/SpecialLink.astro";
 
@@ -28,11 +29,11 @@ const sortedPosts = allPosts
       <div class='status'>
         <div class='status-label'>
           <div id='box' class='bg-emerald-500 h-3 w-3'></div>
-          <p>Currently Available</p>
+          <p>Currently <span class='font-semibold'>Available</span></p>
         </div>
       </div>
       <div class='greetings'>
-        <h1>Hi, I'm <span class='font-bold'>Afrian EP</span></h1>
+        <h1 class='h-large font-normal'>Hi, I'm <span class='font-bold'>Afrian</span></h1>
         <h4>A freelance UX designer who write code.</h4>
       </div>
       <div class='links'>
@@ -67,7 +68,7 @@ const sortedPosts = allPosts
     <section class='blog-home'>
       <div class='title-section'>
         <h5 class='section-title'>RECENT WRITINGS</h5>
-        <a href='/blog'>
+        <a class='btn-link-text' href='/blog'>
           <span>View All</span>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -99,13 +100,12 @@ const sortedPosts = allPosts
     <section id='products' class='products'>
       <h5 class='section-title'>PRODUCTS</h5>
       <div class='product-list'>
-        <div class='card-product-item'>
-          <Fragment set:html={designSparkLogo} />
-          <div class='desc'>
-            <h4>Design Spark</h4>
-            <p>A figma plugin</p>
-          </div>
-        </div>
+        <CardProduct
+          productName='Design Spark'
+          productLogo={designSparkLogo}
+          productDesc='A figma plugin.'
+          productUrl='https://www.figma.com/community/plugin/1368099612425678197/design-spark'
+        />
       </div>
     </section>
   </main>

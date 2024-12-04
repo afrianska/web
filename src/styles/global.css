@@ -17,6 +17,10 @@ body {
     text-gray-900
 }
 
+.h-large {
+  @apply text-5xl md:text-[52px] md:leading-[56px]
+}
+
 h1 {
   @apply text-4xl md:text-[40px] md:leading-[44px]
 }
@@ -60,16 +64,50 @@ nav {
 }
 
 /* Button */
-.button-primary {
+.btn-primary {
     @apply py-2 px-4 text-center
-    rounded-md border
+    rounded-xl border
     font-semibold text-gray-50
     bg-emerald-700 border-emerald-400;
   }
 
-.button-primary:hover {
+.btn-primary:hover {
     @apply bg-emerald-500 border-emerald-200;
-  }
+}
+
+.btn-menu {
+    @apply flex flex-row items-center gap-2
+    py-2 pl-3 pr-2
+    cursor-pointer rounded-xl
+    text-gray-50 bg-gray-900
+    w-fit h-fit select-none 
+}
+
+.btn-menu p {
+    @apply text-base font-normal 
+}
+
+.btn-icon-text {
+    @apply flex flex-row items-center gap-2
+    py-2 px-2 md:pl-3 md:pr-4 text-base font-medium
+    cursor-pointer
+    text-gray-900
+    border border-gray-300 rounded-xl
+    w-fit h-fit select-none 
+}
+
+.btn-link-text {
+  @apply flex flex-row items-center
+  text-gray-900;
+}
+
+.btn-link-text:hover {
+  @apply text-emerald-500
+}
+
+.btn-icon-text span {
+    @apply hidden md:contents;
+}
 
 /* Menu stryle */
 .menu {
@@ -77,7 +115,7 @@ nav {
   hidden
   md:flex flex-row justify-between items-center
   pl-6 pr-3 py-3
-  rounded-2xl
+  rounded-3xl
   bg-gray-900;
 }
 
@@ -104,21 +142,28 @@ nav {
    ;
 }
 
+#menu-body {
+  @apply flex-col gap-8 w-5/6 bg-gray-900 
+  bg-opacity-50 border border-gray-700
+  border-opacity-25 backdrop-blur-sm 
+  rounded-xl mt-2 p-4
+}
+
 .list-menu-body {
   @apply flex flex-col gap-4;
 }
 
 .list-menu-body li a {
   @apply flex flex-row gap-2 w-full items-center
-  px-3 py-2 bg-gray-900 text-gray-50
+  p-2 bg-gray-900 text-gray-50
   bg-opacity-90 border border-gray-700 border-opacity-25
-  rounded-lg;
+  rounded-xl;
 }
 
 .list-menu-body li a .icon {
   @apply p-2 bg-gray-700 text-gray-300
   border border-gray-500 border-opacity-25
-  rounded-lg w-fit h-fit;
+  rounded-md w-fit h-fit;
 }
 
 .list-menu-body li a .label {
@@ -135,11 +180,11 @@ nav {
 }
 
 .list-menu-body li a .label .desc {
-  @apply text-sm font-light text-gray-500;
+  @apply text-sm font-light text-gray-400;
 }
 
 
-
+/* Card Post */
 .card-post {
   @apply flex flex-row gap-8 pl-4
 }
@@ -162,7 +207,7 @@ nav {
 }
 
 .card-post .blog-item p.date-item {
-  @apply font-normal text-sm text-gray-900
+  @apply font-normal text-sm text-gray-700
 }
 
 .card-post .blog-item .title-desc {
@@ -173,61 +218,48 @@ nav {
   @apply font-bold
 }
 
-
-
-
-
-
-
-
-.btn-icon-text {
-    @apply flex flex-row items-center gap-2
-    py-2 px-3 lg:px-5 text-base font-medium
-    rounded-lg cursor-pointer
-    bg-gray-900 text-gray-50
-    w-fit h-fit select-none 
+/* Card work */
+.card-work {
+  @apply w-full h-[320px] overflow-hidden
+  rounded-lg bg-neutral-100
+  bg-no-repeat bg-cover bg-center
 }
 
-.btn-icon-text-secondary {
-    @apply flex flex-row items-center gap-2
-    py-3 px-2 lg:px-5 text-base font-medium
-    border border-white rounded-lg
-    cursor-pointer text-white
-    w-fit h-fit select-none
+.card-work .desc {
+  @apply grid xl:hidden grid-cols-1 content-end
+  min-w-full min-h-full p-4
+  bg-gradient-to-t
+  from-gray-900 from-0% xl:from-0%
+  to-transparent to-65% xl:to-100%
+  text-gray-50
 }
 
-.btn-text {
-    @apply flex flex-row items-center
-    py-3 px-5 text-base font-medium
-    rounded-lg bg-gradient-to-t from-neutral-900 to-neutral-800
-    cursor-pointer select-none
-    w-fit h-fit text-white
+.card-work:hover .desc {
+  @apply grid 
 }
 
-.btn-text-secondary {
-    @apply flex flex-row items-center
-    p-3 border border-neutral-300 rounded-lg
-    cursor-pointer bg-white
-    w-fit h-fit select-none
+/* Card Product */
+.card-product {
+  @apply flex flex-col p-4 gap-4
+  rounded-3xl w-full md:w-[300px]
 }
 
-.btn-icon {
-    @apply cursor-pointer
+.card-product:hover {
+  @apply bg-white shadow-2xl
 }
 
-.btn-icon-secondary {
-    @apply flex flex-row items-center gap-2
-    p-3 border border-neutral-300 rounded-lg
-    cursor-pointer text-white
-    w-fit h-fit select-none
+.card-product svg {
+  @apply h-20 w-20
 }
 
-.btn-icon-disabled {
-    @apply flex flex-row items-center gap-2
-    p-3 border border-neutral-300 rounded-lg
-    cursor-not-allowed text-neutral-300
-    w-fit h-fit select-none
+.card-product .desc {
+  @apply flex flex-col gap-2
 }
+
+.card-product .desc h4 {
+  @apply font-bold
+}
+
 
 .tag {
     @apply flex flex-row items-center
@@ -261,16 +293,19 @@ nav {
    px-4 md:px-0
 }
 
+
+
+
 /* hero section styles */
 .hero {
   @apply flex flex-col w-full md:w-[640px]
-  mt-3 md:mt-44 gap-14 mb-16
+  mt-3 md:mt-40 mb-4 md:mb-16 gap-14 
 }
 
 .hero .status {
   @apply rounded-full
-  w-fit py-[10px] px-5
-  bg-gradient-to-r from-emerald-100 to-transparent
+  w-fit py-[10px] px-4
+  bg-gradient-to-r from-emerald-100 from-5% to-transparent to-90%
 }
 
 .hero .status .status-label {
@@ -278,7 +313,7 @@ nav {
 }
 
 .hero .status .status-label p {
-  @apply text-emerald-900 font-normal
+  @apply text-emerald-900 font-light
 }
 
 .hero .greetings {
@@ -291,11 +326,11 @@ nav {
 }
 
 .hero .greetings h4 {
-  @apply font-light text-gray-700
+  @apply font-light text-gray-900
 }
 
 .hero .links {
-  @apply flex flex-wrap gap-x-4 gap-y-2 md:gap-y-1;
+  @apply flex flex-wrap gap-x-4 gap-y-2 md:gap-y-3;
 }
 
 .hero .links .special-link {
@@ -304,19 +339,22 @@ nav {
 }
 
 .hero .links .special-link .title {
-  @apply text-gray-500;
+  @apply text-base font-light text-gray-700;
 }
 
 .hero .links .special-link .link-icon-text {
   @apply flex flex-row gap-1 items-center
   font-semibold text-gray-900;
 }
+.hero .links .special-link .link-icon-text:hover {
+  @apply text-emerald-500;
+}
 
 
 /* blog home section */
 .blog-home {
   @apply flex flex-col w-full md:w-[640px]
-  py-16 gap-10
+  py-14 gap-10
 }
 
 .blog-home .title-section {
@@ -337,7 +375,7 @@ nav {
 /* products section styles */
 .products {
   @apply flex flex-col w-full md:w-[640px]
-  pt-16 pb-40 gap-10
+  mt-8 mb-24 gap-10
 }
 
 .products .product-list {
@@ -345,29 +383,13 @@ nav {
   gap-10
 }
 
-.products .product-list .card-product-item {
-  @apply flex flex-col p-4 gap-4
-  rounded-xl w-full md:w-[300px]
-}
-
-.products .product-list .card-product-item svg {
-  @apply h-20 w-20
-}
-
-.products .product-list .card-product-item .desc {
-  @apply flex flex-col gap-2
-}
-
-.products .product-list .card-product-item .desc h4 {
-  @apply font-bold
-}
-
 
 /* Page Blog */
 /* header blog section styles */
 .header-blog {
   @apply flex flex-col w-full md:w-[640px]
-  mt-20 md:mt-40 mb-8 gap-10
+  mt-20 md:mt-36 mb-8 gap-10
+  px-4 md:px-0 mx-auto
 }
 
 .header-blog .title-desc {
@@ -376,18 +398,18 @@ nav {
 }
 
 .header-blog .title-desc h1 {
-  @apply font-bold text-4xl md:text-6xl
-  text-gray-900
+  @apply font-bold text-gray-900
 }
 
 .header-blog .title-desc p {
-  @apply text-gray-700
+  @apply text-gray-900
 }
 
 /* blog list section styles */
 .blog-list {
   @apply flex flex-wrap w-full max-h-full md:w-[640px]
-  mt-8 mb-40 gap-10
+  mt-4 md:mt-8 mb-24
+  gap-10
 }
 
 
@@ -395,7 +417,8 @@ nav {
 /* blog page detail */
 .blog-content {
   @apply flex flex-col w-full md:w-[640px]
-  mt-8 pb-24 gap-10
+  mt-4 md:mt-8 mb-24 
+  gap-10
 }
 
 .blog-content .thumbnail {
@@ -451,9 +474,8 @@ nav {
 /* Contact section styles */
 .header-contact {
   @apply flex flex-col w-full md:w-[640px]
-  gap-10 mx-auto
-  mt-20 md:mt-40 mb-8
-  px-4 md:px-0
+  mt-20 md:mt-36 mb-8 gap-10
+  px-4 md:px-0 mx-auto
 }
 
 .header-contact .title-desc {
@@ -462,11 +484,11 @@ nav {
 }
 
 .header-contact .title-desc h1 {
-  @apply font-bold text-4xl md:text-6xl text-gray-900
+  @apply font-bold text-gray-900
 }
 
 .header-contact .title-desc p {
-  @apply text-gray-700
+  @apply text-gray-900
 }
 
 .contact-body {
@@ -480,7 +502,8 @@ nav {
 
 .cal-contact {
   @apply flex flex-col justify-center
-  h-fit w-full pt-8 pb-16 px-4
+  h-fit w-full
+  mt-4 md:mt-12 mb-16 px-4
 }
 
 .contact-us {
@@ -496,7 +519,8 @@ nav {
 /* faq section styles */
 .faq {
   @apply flex flex-col w-full md:w-[640px]
-  pt-16 pb-24 gap-10 mx-auto px-4 md:px-0
+  mt-4 md:mt-8 mb-24
+  gap-10 mx-auto px-4 md:px-0
 }
 
 .faq .faq-list {
@@ -536,12 +560,12 @@ nav {
 }
 
 
-/* Page Blog */
+/* Page Works */
 /* header blog section styles */
 .header-works {
   @apply flex flex-col w-full md:w-[640px]
-  mt-20 md:mt-40 mb-8 gap-10 mx-auto
-  px-4 md:px-0;
+  mt-20 md:mt-36 mb-8 gap-10
+  px-4 md:px-0 mx-auto
 }
 
 .header-works .title-desc {
@@ -550,30 +574,29 @@ nav {
 }
 
 .header-works .title-desc h1 {
-  @apply font-bold text-4xl md:text-6xl
-  text-gray-900
+  @apply font-bold text-gray-900
 }
 
 .header-works .title-desc p {
-  @apply text-gray-700
+  @apply text-gray-900
 }
 
 .works-list {
-  @apply w-full min-h-screen pt-8 md:pt-16 pb-40 px-4 md:px-10 xl:px-24 
-  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
+  @apply w-full min-h-screen
+  mt-4 md:mt-8 mb-24
+  px-4 md:px-10 lg:px-16 xl:px-20 2xl:px-16 
+  grid
+  grid-cols-1 
+  md:grid-cols-2 
+  xl:grid-cols-3 
+  2xl:grid-cols-4 
   gap-8 content-start place-content-center
 }
 
-.works-list .thumbnail {
-  @apply w-full h-[320px] overflow-hidden
-  rounded-lg bg-neutral-100 p-4
-  bg-no-repeat bg-cover bg-center
-}
+
 
 /* Page Links */
 /* header section styles */
-
-
 .link-container {
   @apply w-full md:w-[480px] mx-auto
   pb-24

@@ -5,7 +5,7 @@ export default function HamburgerButton() {
     const makeChangeHam = useHamMenuStore((state) => state.makeChange);
 
     return (
-        <button className='btn-icon-text' onClick={makeChangeHam}>
+        <button onClick={makeChangeHam}>
             {
                 isValueHam
                     ? <svg

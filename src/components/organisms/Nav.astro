@@ -12,7 +12,7 @@ const { selected } = Astro.props;
     <PrimaryButton linkURL='/contact' label='Book A Call' />
   </div>
   <div class='menu-mobile'>
-    <button id='menu' class='btn-icon-text'>
+    <button id='menu' class='btn-menu'>
       <p>Menu</p>
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -27,10 +27,7 @@ const { selected } = Astro.props;
         class='lucide lucide-chevron-down'><path d='m6 9 6 6 6-6'></path></svg
       >
     </button>
-    <div
-      id='menu-body'
-      class='hidden flex-col gap-8 w-5/6 bg-gray-900 bg-opacity-50 border border-gray-700 border-opacity-25 backdrop-blur-sm rounded-lg mt-2 p-4'
-    >
+    <div id='menu-body' class='hidden'>
       <MenuNavMobile defaultSelected={selected} client:load />
       <PrimaryButton linkURL='/contact' label='Book A Call' />
     </div>

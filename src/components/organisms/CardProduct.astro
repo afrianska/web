@@ -1,0 +1,11 @@
+---
+const { productLogo, productName, productDesc, productUrl } = Astro.props;
+---
+
+<div class='card-product'>
+  <Fragment set:html={productLogo} />
+  <div class='desc'>
+    <a href={productUrl} target='_blank'><h4>{productName}</h4></a>
+    <p>{productDesc}</p>
+  </div>
+</div>
