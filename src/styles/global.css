@@ -653,7 +653,7 @@ nav {
 }
 
 .btn-link:hover {
-  @apply border-neutral-900 bg-amber-400
+  @apply border-neutral-900 bg-emerald-400
 }&&
 
 .btn-link svg {
