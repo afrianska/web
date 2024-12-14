@@ -322,6 +322,28 @@ nav {
   @apply text-emerald-900 font-light
 }
 
+.hero .status .status-label #box {
+  @apply bg-emerald-500 h-3 w-3
+}
+
+.hero .status-off {
+  @apply rounded-full
+  w-fit py-[10px] px-4
+  bg-gradient-to-r from-amber-100 from-5% to-transparent to-90%
+}
+
+.hero .status-off .status-label {
+  @apply flex flex-row gap-3 items-center
+}
+
+.hero .status-off .status-label p {
+  @apply text-amber-900 font-light
+}
+
+.hero .status-off .status-label #box {
+  @apply bg-amber-500 h-3 w-3
+}
+
 .hero .greetings {
   @apply flex flex-col text-left
   gap-1;
