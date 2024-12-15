@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
-import HeaderWorks from "../components//organisms/HeaderWorks.astro";
-import CardWork from "../components/organisms/CardWork.astro";
+import HeaderWorks from "../components//organisms/HeaderPortfolio.astro";
+import CardWork from "../components/organisms/CardPortfolio.astro";
 import Nav from "../components/organisms/Nav.astro";
 
 const allPosts = await Astro.glob("./blog/*.md");
@@ -10,7 +10,9 @@ const sortedPosts = allPosts.sort((a, b) => {
 });
 ---
 
-<Layout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
+<Layout
+  pageTitle=`Whether you’re looking to refine an existing product or bring a new idea to life, I’m ready to partner with you. Let's create something impactful, together.`
+>
   <Nav selected='works' />
   <main id='home' class='flex-grow flex flex-col'>
     <HeaderWorks />
@@ -18,17 +20,17 @@ const sortedPosts = allPosts.sort((a, b) => {
       <CardWork
         urlImg='https://res.cloudinary.com/melesat/image/upload/v1666946419/visualo_r9jti8.png'
         company='Alura'
-        urlTo='http://work.afrian.cc'
+        urlTo='http://portfolio.afrian.cc'
       />
       <CardWork
         urlImg='https://res.cloudinary.com/melesat/image/upload/v1666946422/lumra_e8ew9w.png'
         company='Visilo'
-        urlTo='http://work.afrian.cc'
+        urlTo='http://portfolio.afrian.cc'
       />
       <CardWork
         urlImg='https://res.cloudinary.com/melesat/image/upload/v1666947386/lorikon_irttld.png'
         company='Cantara'
-        urlTo='http://work.afrian.cc'
+        urlTo='http://portfolio.afrian.cc'
       />
     </section>
   </main>
