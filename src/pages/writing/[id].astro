@@ -12,11 +12,9 @@ export async function getStaticPaths() {
 }
 // 2. For your template, you can get the entry directly from the prop
 const { writing } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(writing);
+// const { Content, remarkPluginFrontmatter } = await render(writing);
 
 // console.log(`What The Fuct? ${writing}`);
 ---
 
-<BlogPost {...writing.data} {...remarkPluginFrontmatter}>
-  <Content />
-</BlogPost>
+<BlogPost writing={writing} />

@@ -1,19 +1,16 @@
 ---
 import StudyCase from "../../layouts/MarkdownStudyCaseLayout.astro";
 
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const studyCases = await getCollection("studyCases");
   return studyCases.map((studyCase) => ({
     params: { id: studyCase.id },
-    props: studyCase,
+    props: { studyCase },
   }));
 }
-const studyCase = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(studyCase);
+const { studyCase } = Astro.props;
 ---
 
-<StudyCase {...studyCase.data} {...remarkPluginFrontmatter}>
-  <Content />
-</StudyCase>
+<StudyCase studyCase={studyCase} />

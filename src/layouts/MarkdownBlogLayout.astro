@@ -1,11 +1,12 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import Layout from "./BaseLayout.astro";
 import Nav from "../components/organisms/Nav.astro";
 
-type Props = CollectionEntry<"writings">["data"];
+// type Props = CollectionEntry<"writings">["data"];
 
-const writing = Astro.props;
+const { writing } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(writing);
 
 function formatDate(dateString: any) {
   const date = new Date(dateString);
@@ -17,33 +18,33 @@ function formatDate(dateString: any) {
 }
 ---
 
-<Layout pageTitle={writing.title}>
+<Layout pageTitle={writing.data.title}>
   <Nav selected='writing' />
   <main id='home' class='main-narrow-container'>
     <section class='content-show'>
       <div class='flex flex-col gap-4'>
         {
-          writing.image["src"] === "" ? (
+          writing.data.image["src"] === "" ? (
             <div />
           ) : (
-            <div class='thumbnail' style={`background-image: url(${writing.image["src"]})`} />
+            <div class='thumbnail' style={`background-image: url(${writing.data.image["src"]})`} />
           )
         }
 
-        <h1 class='capitalize'>{writing.title}</h1>
+        <h1 class='capitalize'>{writing.data.title}</h1>
         <div class='flex flex-row gap-2 border-y py-3'>
-          <p>{writing.minutesRead}</p>
+          <p>{remarkPluginFrontmatter.minutesRead}</p>
           <p>•</p>
-          <p>{formatDate(writing.pubDate)}</p>
+          <p>{formatDate(writing.data.pubDate)}</p>
         </div>
       </div>
       <div class='content'>
-        <slot />
+        <Content />
       </div>
       <div class='tags flex flex-col gap-3'>
         <h5 class='font-medium'>Tags</h5>
         <div class='flex flex-wrap gap-3'>
-          {writing.tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
+          {writing.data.tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
         </div>
       </div>
     </section>

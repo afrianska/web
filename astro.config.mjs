@@ -12,6 +12,6 @@ export default defineConfig({
       experimentalReactChildren: true,
     })],
     markdown: {
-    remarkPlugins: [remarkReadingTime],
-  },
+      remarkPlugins: [remarkReadingTime],
+    },
 });
