@@ -9,6 +9,5 @@ description: 'Design a trusted and fun farming app for beginners with 15–45-ye
 tags: ["design", "ux", "ui"]
 ---
 
-### The Challenge
-Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.
+Coming soon.
 

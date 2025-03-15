@@ -1,14 +1,13 @@
 ---
 layout: ../../layouts/MarkdownBlogLayout.astro
-title: 'Build a product with Lean UX approachment'
+title: 'Make Sure Your Product Solves The Right Problem'
 image:
     src: ''
     alt: ''
 pubDate: '2024-10-21'
-description: 'Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+description: 'Being UX/UI designer is not only solve the visual look, but the experience feel.'
 tags: ["design", "ux", "ui"]
 ---
 
-### The Challenge
-Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.
+Coming soon.
 
