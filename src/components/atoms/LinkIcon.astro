@@ -1,0 +1,7 @@
+---
+const { icon, linkTo } = Astro.props;
+---
+
+<a class='btn-icon' href={linkTo} target='_blank'>
+  <Fragment set:html={icon} />
+</a>

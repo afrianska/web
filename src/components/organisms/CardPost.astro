@@ -1,5 +1,5 @@
 ---
-const { title, date, url, desc } = Astro.props;
+const { animate, title, date, url, desc } = Astro.props;
 
 function formatDate(dateString: any) {
   const date = new Date(dateString);
@@ -14,12 +14,15 @@ function formatDate(dateString: any) {
 <div class='card-post'>
   <div class='time-line'>
     <div class='line'></div>
-    <div class='circle'></div>
+    <div>
+      <span class=`circle`></span>
+      <span class=`circle ${animate}`></span>
+    </div>
   </div>
   <div class='blog-item'>
     <p class='date-item'>{formatDate(date)}</p>
     <div class='title-desc'>
-      <a href={url}><h4>{title}</h4></a>
+      <a href={`/writing/${url}`}><h4>{title}</h4></a>
       <p>
         {desc}
       </p>

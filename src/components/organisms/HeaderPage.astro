@@ -1,0 +1,13 @@
+---
+const { titleHeader, descHeader, linkHeaderTo } = Astro.props;
+---
+
+<section class='header-page'>
+  <div class='title-desc'>
+    <div>
+      <a href=`${linkHeaderTo}`><h1 class='h-large'>{titleHeader}</h1></a>
+      <h5>By Afrian EP</h5>
+    </div>
+    <p>{descHeader}</p>
+  </div>
+</section>

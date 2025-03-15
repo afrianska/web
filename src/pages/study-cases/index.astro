@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import CardStudyCase from "../../components/organisms/CardStudyCase.astro";
+import Nav from "../../components/organisms/Nav.astro";
+import HeaderPage from "../../components/organisms/HeaderPage.astro";
+
+import { getCollection } from "astro:content";
+
+const sortedStudyCase = (await getCollection("studyCases")).sort((a: any, b: any) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+---
+
+<Layout pageTitle=`Afrian EP: Some of My Study Cases`>
+  <Nav selected='study-cases' />
+  <main id='home' class='main-narrow-container'>
+    <HeaderPage
+      titleHeader=`Study Cases`
+      descHeader=`Projects and challenges that I write in study case format to inform how I solve the problems especially in the UX design field.`
+      linkHeaderTo=`/study-cases`
+    />
+    <section class='study-case-list'>
+      {
+        sortedStudyCase.map((studyCase: any) => {
+          return (
+            <CardStudyCase
+              urlTo={studyCase.id}
+              title={studyCase.data.title}
+              desc={studyCase.data.description}
+              urlImg={studyCase.data.image["src"]}
+            />
+          );
+        })
+      }
+    </section>
+  </main>
+</Layout>

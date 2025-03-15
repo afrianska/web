@@ -1,0 +1,31 @@
+---
+const { title, desc, urlImg, urlTo } = Astro.props;
+
+console.log(urlImg);
+---
+
+<a class='card-study-case' href={`/study-cases/${urlTo}`}>
+  <div class='card'>
+    <div class='desc'>
+      <div class='flex flex-col gap-2'>
+        <h4 class='font-bold'>{title}</h4>
+        <p>{desc}</p>
+      </div>
+      <div class='flex flex-row gap-2 items-center text-emerald-500'>
+        <span>View Case</span>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'><path d='M18 8L22 12L18 16'></path><path d='M2 12H22'></path></svg
+        >
+      </div>
+    </div>
+    <div class='thumbnail' style={{ backgroundImage: `url(${urlImg})` }}></div>
+  </div>
+</a>

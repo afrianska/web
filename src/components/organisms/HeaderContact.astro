@@ -1,11 +1,18 @@
 ---
+import Link from "../atoms/LinkIcon.astro";
+
 import mailIcon from "/svg/mail.svg?raw";
 import waIcon from "/svg/whatsapp.svg?raw";
+
+import dribbbleIcon from "/svg/dribbble.svg?raw";
+import behanceIcon from "/svg/behance.svg?raw";
+import githubIcon from "/svg/github.svg?raw";
+import linkedinIcon from "/svg/linkedin.svg?raw";
 ---
 
 <section class='header-contact'>
   <div class='title-desc'>
-    <h1 class='h-large'>Book A Call</h1>
+    <a href=`/contact`><h1 class='h-large'>Book A Call</h1></a>
     <p>
       There are some ways to reach me. Go with Cal event for a face-to-face consultation, if you
       would like to send me a message to go with my email and WhatsApp chat.
@@ -13,9 +20,10 @@ import waIcon from "/svg/whatsapp.svg?raw";
   </div>
   <div class='flex flex-row justify-between items-center'>
     <div class='flex flex-row items-center gap-3'>
-      <a href='/'>Home</a>
-      <p class='text-gray-300'>{">"}</p>
-      <a href='/contact'>Contact</a>
+      <Link icon={githubIcon} linkTo='https://github.com/afrianska' />
+      <Link icon={dribbbleIcon} linkTo='https://dribbble.com/afrianska' />
+      <Link icon={behanceIcon} linkTo='https://www.behance.net/afrianska/projects' />
+      <Link icon={linkedinIcon} linkTo='https://www.linkedin.com/in/afrian' />
     </div>
     <div class='flex flex-row items-center gap-3'>
       <a

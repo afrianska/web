@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   @font-face {
     font-family: 'Inter';
     src: url(/fonts/Inter-VariableFont_opsz,wght.ttf) format('ttf');
   }
-}
+} */
 
 body {
     @apply relative
@@ -15,6 +15,7 @@ body {
     my-auto mx-0
     bg-gray-50
     text-gray-900
+    font-inter
 }
 
 .h-large {
@@ -114,6 +115,22 @@ nav {
 .btn-icon-text span {
     @apply hidden md:contents;
 }
+
+.btn-icon {
+    @apply flex flex-row items-center gap-2
+    py-2 px-2 md:pl-3 md:pr-3
+    cursor-pointer
+    text-gray-900
+    border border-gray-300 rounded-xl
+    w-fit h-fit select-none 
+}
+
+.btn-icon:hover {
+  @apply text-gray-900
+    border-gray-300
+    bg-gray-200
+}
+
 
 /* Menu stryle */
 .menu {
@@ -220,7 +237,11 @@ nav {
   @apply flex flex-col gap-1
 }
 
-.card-post .blog-item .title-desc h4 {
+.card-post .blog-item .title-desc a {
+  @apply hover:text-emerald-500
+}
+
+.card-post .blog-item .title-desc a h4 {
   @apply font-bold
 }
 
@@ -266,6 +287,24 @@ nav {
   @apply font-bold
 }
 
+/* Tittle section */
+.title-section {
+  @apply flex flex-row justify-between items-center;
+}
+
+.title-section a {
+  @apply flex flex-row gap-2 items-center
+  font-light hover:font-normal;
+}
+
+.title-section a svg {
+  @apply hidden
+}
+
+.title-section a:hover > svg {
+  @apply flex text-emerald-500
+}
+
 
 .tag {
     @apply flex flex-row items-center
@@ -280,6 +319,8 @@ nav {
   font-light uppercase select-none
 }
 
+
+
 .nav {
     @apply w-full flex-row 
     justify-between 
@@ -293,6 +334,8 @@ nav {
   px-4 md:px-0 mx-auto 
   flex flex-col items-center
 }
+
+
 
 .main-container {
   @apply w-full h-full bg-white 
@@ -354,59 +397,52 @@ nav {
 }
 
 .hero .greetings h4 {
-  @apply font-light text-gray-900
+  @apply font-normal text-gray-900
 }
 
-.hero .links {
-  @apply flex flex-wrap gap-x-4 gap-y-2 md:gap-y-3;
-}
-
-.hero .links .special-link {
-  @apply flex flex-row items-center
-  gap-1;
-}
-
-.hero .links .special-link .title {
-  @apply text-base font-light text-gray-700;
-}
-
-.hero .links .special-link .link-icon-text {
-  @apply flex flex-row gap-1 items-center
-  font-semibold text-gray-900;
-}
-.hero .links .special-link .link-icon-text:hover {
-  @apply text-emerald-500;
+.hero .intro {
+  @apply font-light text-base md:text-lg
 }
 
 
-/* blog home section */
-.blog-home {
+.link-text-underline {
+  @apply inline-flex gap-1 items-center
+  font-semibold text-gray-900
+  underline decoration-emerald-500
+  underline-offset-4;
+}
+.link-text-underline:hover {
+  @apply text-emerald-700;
+}
+
+
+.section-home {
   @apply flex flex-col w-full md:w-[640px]
   py-14 gap-10
 }
 
-.blog-home .title-section {
-  @apply flex flex-row justify-between items-center;
+
+
+/* study cases home section */
+.section-home .study-cases-list-home {
+  @apply flex flex-col gap-8 md:gap-6 w-full
 }
 
-.blog-home .title-section a {
-  @apply flex flex-row gap-2 items-center
-  font-semibold;
-}
 
-.blog-home .blog-list-home {
+/* blog home section */
+.section-home .blog-list-home {
   @apply flex flex-col gap-0 w-full
 }
 
 
 
-/* products section styles */
-.products {
+/* side-projects section styles */
+.side-projects {
   @apply flex flex-col w-full md:w-[640px]
   mt-8 mb-24 gap-10
 }
 
-.products .product-list {
+.side-projects .product-list {
   @apply flex flex-wrap w-full
   gap-10
 }
@@ -416,7 +452,7 @@ nav {
 /* header blog section styles */
 .header-blog {
   @apply flex flex-col w-full md:w-[640px]
-  mt-20 md:mt-36 mb-8 gap-10
+  mt-20 md:mt-32 mb-4 gap-10 pb-6 border-b
   px-4 md:px-0 mx-auto
 }
 
@@ -437,72 +473,78 @@ nav {
 .blog-list {
   @apply flex flex-wrap w-full max-h-full md:w-[640px]
   mt-4 md:mt-8 mb-24
-  gap-10
 }
 
-
+/* blog list section styles */
+.study-case-list {
+  @apply flex flex-wrap w-full max-h-full md:w-[640px]
+  mt-4 md:mt-8 mb-24 gap-8 md:gap-6
+}
 
 /* blog page detail */
-.blog-content {
+.content-show {
   @apply flex flex-col w-full md:w-[640px]
-  mt-4 md:mt-8 mb-24 
-  gap-10
+  mt-4 md:mt-28 mb-24 
+  gap-6
 }
 
-.blog-content .thumbnail {
+.content-show .thumbnail {
   @apply w-full h-40 md:h-80 overflow-hidden
-  rounded-lg bg-neutral-100
+  rounded-2xl bg-neutral-100
   bg-no-repeat bg-cover bg-center
 }
 
-.blog-content .content {
-  @apply flex flex-col gap-4 text-gray-700 
-}
-
-.blog-content h1 {
+.content-show h1 {
   @apply text-gray-900 font-bold
 }
 
-.blog-content h2 {
-  @apply text-gray-900 font-bold mt-12
+.content-show .content {
+  @apply flex flex-col gap-2 text-gray-700 
 }
 
-.blog-content h3 {
-  @apply text-gray-900 font-bold mt-3
+.content-show .content h1 {
+  @apply text-gray-900 font-bold
+  text-2xl md:text-3xl md:leading-9 mt-5
 }
 
-.blog-content h4,
-.blog-content h5 {
+.content-show .content h2 {
   @apply text-gray-900 font-semibold
+  text-xl md:text-2xl md:leading-8 mt-3
 }
 
-.blog-content p {
-  @apply text-gray-900 font-normal
+.content-show .content h3 {
+  @apply text-gray-900 font-medium
+  text-base md:text-lg md:leading-7 mt-1
 }
 
-.blog-content figcaption {
+.content-show .content p {
+  @apply text-gray-900 font-light
+  mb-2
+}
+
+.content-show .content figcaption {
   @apply text-center text-xs font-extralight
   text-gray-500  mb-4
 }
 
-.blog-content ul {
+.content-show .content ul {
   @apply list-disc pl-4 pb-4 
+  text-gray-900
 }
 
-.blog-content ul li {
-  @apply py-1 font-semibold
+.content-show .content ul li {
+  @apply py-1 font-light
 }
 
-.blog-content a {
+.content-show .content a {
   @apply font-semibold underline
 }
-
 
 /* Page Contact */
 /* Contact section styles */
 .header-contact {
   @apply flex flex-col w-full md:w-[640px]
-  mt-20 md:mt-36 mb-8 gap-10
+  mt-20 md:mt-32 mb-8 gap-10
   px-4 md:px-0 mx-auto
 }
 
@@ -597,7 +639,7 @@ nav {
 /* header blog section styles */
 .header-works {
   @apply flex flex-col w-full md:w-[640px]
-  mt-20 md:mt-36 mb-8 gap-10
+  mt-20 md:mt-32 mb-4 gap-10 pb-6 border-b
   px-4 md:px-0 mx-auto
 }
 
@@ -691,3 +733,80 @@ nav {
 }
 
 
+/* footer
+
+.footer-narrow-container {
+  @apply w-full md:w-[640px] justify-between
+  px-4 md:px-0 mx-auto 
+  flex flex-col md:flex-row items-center
+}
+
+.footer {
+  @apply gap-4;
+}
+
+.footer .links {
+  @apply flex flex-wrap gap-x-4 gap-y-2 md:gap-y-3;
+}
+
+.footer .links .special-link {
+  @apply flex flex-row items-center
+  gap-1;
+}
+
+.footer .links .special-link .link-icon-text {
+  @apply inline-flex gap-1 items-center
+  font-normal text-gray-500
+}
+.footer .links .special-link .link-icon-text:hover {
+  @apply text-emerald-500;
+} */
+
+/* Card Study Case */
+.card-study-case {
+  @apply w-full min-h-max
+  hover:transition duration-200 ease-in 
+  hover:-ml-2 hover:-mt-1 hover:mb-1 hover:mr-2
+}
+
+.card-study-case .card {
+  @apply flex flex-col-reverse 
+  md:flex-row w-full h-full gap-4 rounded-3xl 
+  overflow-hidden hover:bg-neutral-50 
+  p-2 md:p-6 
+  hover:drop-shadow-[0_28px_28px_rgba(0,0,0,0.25)]
+}
+
+.card-study-case .card .desc {
+  @apply flex flex-col gap-4 md:gap-0 md:justify-between
+  w-full md:w-1/2
+}
+
+.card-study-case .card .thumbnail {
+  @apply w-full h-60 md:w-1/2 
+  bg-no-repeat bg-cover bg-center rounded-2xl
+}
+
+/* header page styles */
+.header-page {
+  @apply flex flex-col w-full md:w-[640px]
+  mt-20 md:mt-32 mb-4 gap-10 pb-6 border-b
+  px-4 md:px-0 mx-auto
+}
+
+.header-page .title-desc {
+  @apply flex flex-col w-full
+  gap-3 justify-center text-center
+}
+
+.header-page .title-desc h1 {
+  @apply font-bold text-gray-900
+}
+
+.header-page .title-desc h5 {
+  @apply mt-2 font-light text-neutral-400
+}
+
+.header-works .title-desc p {
+  @apply text-gray-900
+}

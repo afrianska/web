@@ -1,0 +1,28 @@
+---
+const { title, date, url, desc } = Astro.props;
+
+function formatDate(dateString: any) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+---
+
+<div class='card-post'>
+  <div class='time-line'>
+    <div class='line'></div>
+    <div class='circle'></div>
+  </div>
+  <div class='blog-item'>
+    <p class='date-item'>{formatDate(date)}</p>
+    <div class='title-desc'>
+      <a href={`/study-cases/${url}`}><h4>{title}</h4></a>
+      <p>
+        {desc}
+      </p>
+    </div>
+  </div>
+</div>

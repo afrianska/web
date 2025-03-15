@@ -1,10 +1,11 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Layout from "./BaseLayout.astro";
-import HeaderBlog from "../components/organisms/HeaderBlog.astro";
 import Nav from "../components/organisms/Nav.astro";
 
-const { frontmatter } = Astro.props;
-const { minutesRead } = Astro.props.frontmatter;
+type Props = CollectionEntry<"writings">["data"];
+
+const writing = Astro.props;
 
 function formatDate(dateString: any) {
   const date = new Date(dateString);
@@ -14,21 +15,26 @@ function formatDate(dateString: any) {
     year: "numeric",
   }).format(date);
 }
-const tags: any = frontmatter.tags;
 ---
 
-<Layout pageTitle={frontmatter.title}>
-  <Nav selected='blog' />
+<Layout pageTitle={writing.title}>
+  <Nav selected='writing' />
   <main id='home' class='main-narrow-container'>
-    <HeaderBlog />
-    <section class='blog-content h-full'>
+    <section class='content-show'>
       <div class='flex flex-col gap-4'>
-        <div class='thumbnail' style=`background-image: url(${frontmatter.image.url});`></div>
-        <h1 class='capitalize'>{frontmatter.title}</h1>
+        {
+          writing.image["src"] === "" ? (
+            <div />
+          ) : (
+            <div class='thumbnail' style={`background-image: url(${writing.image["src"]})`} />
+          )
+        }
+
+        <h1 class='capitalize'>{writing.title}</h1>
         <div class='flex flex-row gap-2 border-y py-3'>
-          <p>{minutesRead}</p>
+          <p>{writing.minutesRead}</p>
           <p>•</p>
-          <p>{formatDate(frontmatter.pubDate)}</p>
+          <p>{formatDate(writing.pubDate)}</p>
         </div>
       </div>
       <div class='content'>
@@ -37,7 +43,7 @@ const tags: any = frontmatter.tags;
       <div class='tags flex flex-col gap-3'>
         <h5 class='font-medium'>Tags</h5>
         <div class='flex flex-wrap gap-3'>
-          {tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
+          {writing.tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
         </div>
       </div>
     </section>

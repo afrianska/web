@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import HeaderPage from "../components/organisms/HeaderPage.astro";
+import CardProduct from "../components/organisms/CardProduct.astro";
+import Nav from "../components/organisms/Nav.astro";
+
+import designSparkLogo from "/logo/design-spark.svg?raw";
+
+import { getCollection } from "astro:content";
+const writings = await getCollection("writings");
+
+const sortedWritings = await writings.sort((a: any, b: any) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+---
+
+<Layout pageTitle='Afrian’s Blog: Articles about design, software development, lifestyle, etc.'>
+  <Nav selected='side-projects' />
+  <main id='home' class='main-narrow-container'>
+    <HeaderPage
+      titleHeader=`Side Projects`
+      descHeader=`Here is what I have did during my free time.`
+      linkHeaderTo=`/side-projects`
+    />
+    <section class='side-projects'>
+      <div class='product-list'>
+        <CardProduct
+          productName='Design Spark'
+          productLogo={designSparkLogo}
+          productDesc='A figma plugin.'
+          productUrl='https://www.figma.com/community/plugin/1368099612425678197/design-spark'
+        />
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./BaseLayout.astro";
+import Nav from "../components/organisms/Nav.astro";
+
+type Props = CollectionEntry<"studyCases">["data"];
+
+const studyCases = Astro.props;
+
+function formatDate(dateString: any) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+---
+
+<Layout pageTitle={studyCases.title}>
+  <Nav selected='study-cases' />
+  <main id='home' class='main-narrow-container'>
+    <section class='content-show'>
+      <div class='flex flex-col gap-4'>
+        <div class='thumbnail' style=`background-image: url(${studyCases.image['src']});`></div>
+        <h1 class='capitalize'>{studyCases.title}</h1>
+        <div class='flex flex-row gap-2 border-y py-3'>
+          <p>{studyCases.minutesRead}</p>
+          <p>•</p>
+          <p>{formatDate(studyCases.pubDate)}</p>
+        </div>
+      </div>
+      <div class='content'>
+        <slot />
+      </div>
+      <div class='tags flex flex-col gap-3'>
+        <h5 class='font-medium'>Tags</h5>
+        <div class='flex flex-wrap gap-3'>
+          {studyCases.tags.map((tag: any) => <p class='font-light text-neutral-500'>#{tag}</p>)}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

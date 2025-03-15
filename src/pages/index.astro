@@ -3,28 +3,29 @@ import Layout from "../layouts/BaseLayout.astro";
 import CardPost from "../components/organisms/CardPost.astro";
 import Nav from "../components/organisms/Nav.astro";
 import CardProduct from "../components/organisms/CardProduct.astro";
-
-import Link from "../components/atoms/SpecialLink.astro";
-
-import cvIcon from "/svg/file-text.svg?raw";
-import dribbbleIcon from "/svg/dribbble.svg?raw";
-import behanceIcon from "/svg/behance.svg?raw";
-import githubIcon from "/svg/github.svg?raw";
-import linkedinIcon from "/svg/linkedin.svg?raw";
+import CardStudyCase from "../components/organisms/CardStudyCase.astro";
+import LinkText from "../components/atoms/LinkText.astro";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
 
-const allPosts = await Astro.glob("./blog/*.md");
-const sortedPosts = allPosts
-  .sort((a, b) => {
-    return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime();
-  })
-  .slice(0, 4);
+import { getCollection } from "astro:content";
+
+const sortedWritings = (await getCollection("writings"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+let countSortedWritings = sortedWritings.length;
+
+console.log(typeof sortedWritings);
+console.log(countSortedWritings);
+
+const sortedStudyCases = (await getCollection("studyCases"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 ---
 
 <Layout pageTitle='Afrian EP: Design And Develop Your Web And Mobila App.'>
-  <Nav selected='home' />
-  <main id='home' class='main-narrow-container'>
+  <Nav selected='start' />
+  <main class='main-narrow-container'>
     <section class='hero'>
       <div class='status-off'>
         <div class='status-label'>
@@ -36,40 +37,52 @@ const sortedPosts = allPosts
         <h1 class='h-large font-normal'>Hi, I'm <span class='font-bold'>Afrian</span></h1>
         <h4>UX designer who write code.</h4>
       </div>
-      <div class='links'>
-        <Link
-          icon={githubIcon}
-          linkTo='https://github.com/afrianska'
-          title='Repository'
-          label='afrianska'
-        />
-        <Link
-          icon={dribbbleIcon}
-          linkTo='https://dribbble.com/afrianska'
-          title='Design Exploration'
-          label='afrianska'
-        />
-        <Link
-          icon={behanceIcon}
+      <p class='intro'>
+        Navigate to <LinkText linkTo='/study-cases' label='Study Cases' /> to know my design process.
+        Visit my <LinkText linkTo='https://dribbble.com/afrianska' label='Dribbble' /> and <LinkText
           linkTo='https://www.behance.net/afrianska/projects'
-          title='Study Case'
-          label='afrianska'
+          label='Behance'
         />
-
-        <Link
-          icon={linkedinIcon}
-          linkTo='https://www.linkedin.com/in/afrian'
-          title='LinkedIn'
-          label='afrian'
-        />
-        <Link icon={cvIcon} linkTo='/afrian.pdf' title='Resume' label='afrian.pdf' />
+        to see my visual design exploration. Also, I write code especially related to the front-end,
+        check my repository at <LinkText linkTo='https://github.com/afrianska' label='GitHub' />.
+        Download my <LinkText linkTo='/afrian.pdf' label='Resume' /> for more info about me.
+      </p>
+    </section>
+    <section class='section-home'>
+      <div class='title-section'>
+        <a href='/writing'>
+          <h5>RECENT STUDY CASES</h5>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            ><path d='M18 8L22 12L18 16'></path><path d='M2 12H22'></path></svg
+          >
+        </a>
+      </div>
+      <div class='study-cases-list-home'>
+        {
+          sortedStudyCases.map((studyCase: any) => (
+            <CardStudyCase
+              urlTo={studyCase.id}
+              title={studyCase.data.title}
+              desc={studyCase.data.description}
+              urlImg={studyCase.data.image["src"]}
+            />
+          ))
+        }
       </div>
     </section>
-    <section class='blog-home'>
+    <section class='section-home'>
       <div class='title-section'>
-        <h5 class='section-title'>RECENT WRITINGS</h5>
-        <a class='btn-link-text' href='/blog'>
-          <span>View All</span>
+        <a href='/writing'>
+          <h5>RECENT WRITINGS</h5>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -86,19 +99,41 @@ const sortedPosts = allPosts
       </div>
       <div class='blog-list-home'>
         {
-          sortedPosts.map((post) => (
-            <CardPost
-              url={post.url}
-              title={post.frontmatter.title}
-              date={post.frontmatter.pubDate}
-              desc={post.frontmatter.description}
-            />
-          ))
+          sortedWritings.map((writing: any) => {
+            let firstIndex = sortedWritings.at(0);
+            let isFirstIndex = firstIndex?.id === writing.id ? "animate-ping" : "";
+
+            return (
+              <CardPost
+                animate={isFirstIndex}
+                url={writing.id}
+                title={writing.data.title}
+                date={writing.data.pubDate}
+                desc={writing.data.description}
+              />
+            );
+          })
         }
       </div>
     </section>
-    <section id='products' class='products'>
-      <h5 class='section-title'>PRODUCTS</h5>
+    <section class='side-projects'>
+      <div class='title-section'>
+        <a href='/writing'>
+          <h5>SIDE PROJECTS</h5>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            ><path d='M18 8L22 12L18 16'></path><path d='M2 12H22'></path></svg
+          >
+        </a>
+      </div>
       <div class='product-list'>
         <CardProduct
           productName='Design Spark'

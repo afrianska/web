@@ -4,7 +4,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-			'inter': ['Inter', 'system-ui' ],
+			'inter': ['Inter' ],
 			}
 		},
 		scrollbar: {
