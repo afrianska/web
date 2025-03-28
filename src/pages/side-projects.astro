@@ -5,6 +5,7 @@ import CardProduct from "../components/organisms/CardProduct.astro";
 import Nav from "../components/organisms/Nav.astro";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
+import craftingWebLogo from "/logo/crafting-web.svg?raw";
 
 import { getCollection } from "astro:content";
 const writings = await getCollection("writings");
@@ -29,6 +30,12 @@ const sortedWritings = await writings.sort((a: any, b: any) => {
           productLogo={designSparkLogo}
           productDesc='A figma plugin.'
           productUrl='https://www.figma.com/community/plugin/1368099612425678197/design-spark'
+        />
+        <CardProduct
+          productName='Crafting Web'
+          productLogo={craftingWebLogo}
+          productDesc='A web development.'
+          productUrl='https://crafting.web.app/'
         />
       </div>
     </section>

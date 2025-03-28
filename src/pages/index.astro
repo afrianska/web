@@ -7,6 +7,7 @@ import CardStudyCase from "../components/organisms/CardStudyCase.astro";
 import LinkText from "../components/atoms/LinkText.astro";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
+import craftingWebLogo from "/logo/crafting-web.svg?raw";
 
 import { getCollection } from "astro:content";
 
@@ -140,6 +141,12 @@ const sortedStudyCases = (await getCollection("studyCases"))
           productLogo={designSparkLogo}
           productDesc='A figma plugin.'
           productUrl='https://www.figma.com/community/plugin/1368099612425678197/design-spark'
+        />
+        <CardProduct
+          productName='Crafting Web'
+          productLogo={craftingWebLogo}
+          productDesc='A web development.'
+          productUrl='https://crafting.web.app/'
         />
       </div>
     </section>
