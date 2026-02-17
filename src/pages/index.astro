@@ -8,6 +8,7 @@ import LinkText from "../components/atoms/LinkText.astro";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
 import craftingWebLogo from "/logo/crafting-web.svg?raw";
+import iconmuLogo from "/logo/iconmu.svg?raw";
 
 import { getCollection } from "astro:content";
 
@@ -80,7 +81,7 @@ const sortedStudyCases = (await getCollection("studyCases"))
         }
       </div>
     </section>
-    <section class='section-home'>
+{/** <section class='section-home'>
       <div class='title-section'>
         <a href='/writing'>
           <h5>RECENT WRITINGS</h5>
@@ -116,7 +117,8 @@ const sortedStudyCases = (await getCollection("studyCases"))
           })
         }
       </div>
-    </section>
+</section>
+**/}
     <section class='side-projects'>
       <div class='title-section'>
         <a href='/writing'>
@@ -137,6 +139,13 @@ const sortedStudyCases = (await getCollection("studyCases"))
       </div>
       <div class='product-list'>
         <CardProduct
+          productName='Iconmu'
+          productLogo={iconmuLogo}
+          productDesc='Free Icon Pack.'
+          productUrl='https://iconmu.vercel.app'
+        />
+
+        <CardProduct
           productName='Design Spark'
           productLogo={designSparkLogo}
           productDesc='A figma plugin.'
@@ -146,7 +155,7 @@ const sortedStudyCases = (await getCollection("studyCases"))
           productName='Crafting Web'
           productLogo={craftingWebLogo}
           productDesc='A web development.'
-          productUrl='https://crafting.web.app/'
+          productUrl='https://craftingweb.vercel.app/'
         />
       </div>
     </section>

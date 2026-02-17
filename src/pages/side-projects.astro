@@ -6,6 +6,7 @@ import Nav from "../components/organisms/Nav.astro";
 
 import designSparkLogo from "/logo/design-spark.svg?raw";
 import craftingWebLogo from "/logo/crafting-web.svg?raw";
+import iconmuLogo from "/logo/iconmu.svg?raw";
 
 import { getCollection } from "astro:content";
 const writings = await getCollection("writings");
@@ -25,6 +26,13 @@ const sortedWritings = await writings.sort((a: any, b: any) => {
     />
     <section class='side-projects'>
       <div class='product-list'>
+        <CardProduct
+          productName='Iconmu'
+          productLogo={iconmuLogo}
+          productDesc='Free Icon Pack.'
+          productUrl='https://iconmu.vercel.app'
+        />
+
         <CardProduct
           productName='Design Spark'
           productLogo={designSparkLogo}

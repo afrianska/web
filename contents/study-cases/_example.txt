@@ -1,0 +1,19 @@
+---
+layout: ../../layouts/MarkdownBlogLayout.astro
+title: 'Nutritious Food Precurement Government App'
+image:
+    src: 'https://res.cloudinary.com/melesat/image/upload/v1666946419/visualo_r9jti8.png'
+    alt: '-'
+pubDate: '2020-04-16'
+description: 'Design a trusted and fun farming app for beginners with 15–45-year-olds that for the first time plant a type of new plant.'
+tags: ["design", "ux", "ui", "study case"]
+---
+
+IMRAD [Introduction, Methods, Result, Disscussion, Reference]
+
+
+![Image Alt Text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*WCsOG2i4xsfLQ4Yr6uH7lA.png)
+<figcaption>Project Map from begin to end experiences</figcaption>
+
+**Everyone can access the prototype of this study case [HERE](https://www.figma.com/community/file/1269175758691914592)**
+
